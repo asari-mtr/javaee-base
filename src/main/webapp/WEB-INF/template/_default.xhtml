@@ -15,8 +15,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     </h:head>
     <h:body>
-        <ui:insert name="header"/>
+        <ui:insert name="header">
+            <ui:include src="_navbar.xhtml"/>
+        </ui:insert>
         <ui:insert name="content"/>
-        <ui:insert name="footer"/>
+        <ui:insert name="footer">
+            <ui:include src="_footer.xhtml"/>
+        </ui:insert>
     </h:body>
 </html>

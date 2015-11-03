@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html" template="WEB-INF/template/_default.xhtml">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="WEB-INF/template/_default.xhtml">
    <ui:define name="content">
-      <h:outputText value="Hello world"/>
+      <div class="container">
+         <form class="form-inline">
+            <div class="input-group">
+               <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-pencil"/>
+               </span>
+               <input type="text" class="form-control" id="todo" placeholder="Buy a milk"/>
+               <span class="input-group-btn">
+                  <button type="submit" class="btn btn-primary">追加</button>
+               </span>
+            </div>
+         </form>
+         <ul class="list-group">
+            <ui:repeat value="#{emptyCollection}" var="item">
+            <li class="list-group-item">
+               <span class="glyphicon glyphicon-unchecked"/>
+               Buy a milk #{item}
+            </li>
+            </ui:repeat>
+         </ul>
+      </div>
    </ui:define>
 </ui:composition>
