@@ -14,7 +14,7 @@
                <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="Buy a milk."/>
                <span class="input-group-btn">
                   <h:commandButton action="#{todoAction.create(todoModel)}" value="追加" styleClass="btn btn-primary">
-                     <f:ajax execute="@form" render="items"/>
+                     <f:ajax execute="@form" render="todo items"/>
                   </h:commandButton>
                </span>
             </div>

@@ -32,6 +32,9 @@ public class TodoAction implements Action {
     taskItem.setTask(todo.getTask());
 
     repository.save(taskItem);
+
+    // TODO ajax更新の場合taskの値が残ってしまうので削除処理を入れておく、なんとかならないのか
+    todo.setTask("");
   }
 
   /**
