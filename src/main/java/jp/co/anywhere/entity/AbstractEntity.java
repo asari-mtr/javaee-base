@@ -1,12 +1,13 @@
 package jp.co.anywhere.entity;
 
+
 import javax.persistence.*;
 
 /**
  * Created by asari on 2015/11/07.
  */
 @MappedSuperclass
-public abstract class AbstractEntity {
+public abstract class AbstractEntity implements Entity {
   @Id
   @Column
   @GeneratedValue
