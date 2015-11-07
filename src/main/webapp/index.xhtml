@@ -2,6 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://java.sun.com/jsf/core"
                 template="WEB-INF/template/_default.xhtml">
    <ui:define name="content">
       <div class="container">
@@ -12,18 +13,22 @@
                </span>
                <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="Buy a milk"/>
                <span class="input-group-btn">
-                  <h:commandButton action="#{todoAction.create}" value="追加" styleClass="btn btn-primary"/>
+                  <h:commandButton action="#{todoAction.create}" value="追加" styleClass="btn btn-primary">
+                     <f:ajax execute="@form" render="items"/>
+                  </h:commandButton>
                </span>
             </div>
          </h:form>
-         <ul class="list-group">
-            <ui:repeat value="#{todoAction.result}" var="item">
-            <li class="list-group-item">
-               <span class="glyphicon glyphicon-#{item.done ? 'checked': 'unchecked'}"/>
-               #{item.task}
-            </li>
-            </ui:repeat>
-         </ul>
+         <h:panelGroup id="items" layout="block">
+            <ul class="list-group">
+               <ui:repeat value="#{todoAction.result}" var="item">
+               <li class="list-group-item">
+                  <span class="glyphicon glyphicon-#{item.done ? 'checked': 'unchecked'}"/>
+                  #{item.task}
+               </li>
+               </ui:repeat>
+            </ul>
+         </h:panelGroup>
       </div>
    </ui:define>
 </ui:composition>
