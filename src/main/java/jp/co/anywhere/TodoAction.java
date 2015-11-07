@@ -1,6 +1,7 @@
 package jp.co.anywhere;
 
 import jp.co.anywhere.action.Action;
+import jp.co.anywhere.entity.Entity;
 import jp.co.anywhere.entity.TaskItem;
 import jp.co.anywhere.model.TodoModel;
 import jp.co.anywhere.repository.SimpleRepository;
@@ -31,6 +32,14 @@ public class TodoAction implements Action {
     taskItem.setTask(todo.getTask());
 
     repository.save(taskItem);
+  }
+
+  /**
+   * タスクの削除
+   */
+  @Transactional
+  public void delete(TodoModel todo) {
+    repository.delete(TaskItem.class, todo.getId());
   }
 
   /**

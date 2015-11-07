@@ -19,16 +19,19 @@
                </span>
             </div>
          </h:form>
-         <h:panelGroup id="items" layout="block">
+         <h:form id="items">
             <ul class="list-group">
                <ui:repeat value="#{todoAction.result}" var="item">
                <li class="list-group-item">
                   <span class="glyphicon glyphicon-#{item.done ? 'checked': 'unchecked'}"/>
                   #{item.task}
+                     <h:commandButton action="#{todoAction.delete(item)}" value="削除" styleClass="btn btn-danger btn-xs">
+                        <f:ajax execute="@form" render="items"/>
+                     </h:commandButton>
                </li>
                </ui:repeat>
             </ul>
-         </h:panelGroup>
+         </h:form>
       </div>
    </ui:define>
 </ui:composition>

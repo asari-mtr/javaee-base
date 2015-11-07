@@ -1,6 +1,7 @@
 package jp.co.anywhere.repository;
 
 import jp.co.anywhere.entity.Entity;
+import jp.co.anywhere.entity.TaskItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,10 +27,12 @@ public class SimpleRepository {
 
   /**
    * 指定されたEntityを削除する
-   * @param entity
+   * @param entity 削除対象のテーブル
+   * @param id 削除対象のID
    */
-  public <E extends Entity> void delete(E entity) {
-    entityManager.remove(entity);
+  public <E extends Entity> void delete(Class<E> entity, Long id) {
+    E e = get(entity, id);
+    entityManager.remove(e);
   }
 
   /**
