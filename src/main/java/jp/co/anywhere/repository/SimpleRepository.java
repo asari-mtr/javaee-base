@@ -36,6 +36,16 @@ public class SimpleRepository {
   }
 
   /**
+   * 指定されたEntityを更新する
+   * attachされている必要がある
+   * @param entity 更新対象のEntity
+   * @param <E> Entityのサブクラス
+   */
+  public <E extends Entity> void update(E entity) {
+    entityManager.merge(entity);
+  }
+
+  /**
    * 指定されたIDのEntityを取得する
    * @param clazz 取得するテーブル
    * @param id ID

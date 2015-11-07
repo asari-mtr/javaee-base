@@ -23,8 +23,13 @@
             <ul class="list-group">
                <ui:repeat value="#{todoAction.result}" var="item">
                <li class="list-group-item">
-                  <span class="glyphicon glyphicon-#{item.done ? 'checked': 'unchecked'}"/>
-                  #{item.task}
+                   <!--
+                   <span class="glyphicon glyphicon-#{item.done ? 'checked': 'unchecked'}"/>
+                   -->
+                   <h:selectBooleanCheckbox value="#{item.done}">
+                       <f:ajax event="change" execute="@this" render="items" listener="#{todoAction.check(item)}"/>
+                   </h:selectBooleanCheckbox>
+                   #{item.task}
                      <h:commandButton action="#{todoAction.delete(item)}" value="削除" styleClass="btn btn-danger btn-xs">
                         <f:ajax execute="@form" render="items"/>
                      </h:commandButton>

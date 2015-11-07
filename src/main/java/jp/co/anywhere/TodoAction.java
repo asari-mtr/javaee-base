@@ -1,5 +1,6 @@
 package jp.co.anywhere;
 
+import com.sun.javafx.tk.Toolkit;
 import jp.co.anywhere.action.Action;
 import jp.co.anywhere.entity.Entity;
 import jp.co.anywhere.entity.TaskItem;
@@ -43,6 +44,13 @@ public class TodoAction implements Action {
   @Transactional
   public void delete(TodoModel todo) {
     repository.delete(TaskItem.class, todo.getId());
+  }
+  
+  @Transactional
+  public void check(TodoModel todo) {
+    TaskItem taskItem = repository.get(TaskItem.class, todo.getId());
+    taskItem.setDone(!taskItem.isDone());
+    repository.update(taskItem);
   }
 
   /**
