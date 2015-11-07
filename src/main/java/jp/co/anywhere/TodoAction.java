@@ -20,15 +20,13 @@ import java.util.stream.Collectors;
 public class TodoAction implements Action {
 
   @Inject
-  private TodoModel todo;
-  @Inject
   private SimpleRepository repository;
 
   /**
    * タスクの作成
    */
   @Transactional
-  public void create() {
+  public void create(TodoModel todo) {
     TaskItem taskItem = new TaskItem();
     taskItem.setTask(todo.getTask());
 
