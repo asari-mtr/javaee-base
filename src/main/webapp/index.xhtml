@@ -11,7 +11,7 @@
                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-pencil"/>
                </span>
-               <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="Buy a milk."/>
+               <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="Buy a milk." p:autofocus="true"/>
                <span class="input-group-btn">
                   <h:commandButton action="#{todoAction.create(todoModel)}" value="追加" styleClass="btn btn-primary">
                      <f:ajax execute="@form" render="todo items"/>
