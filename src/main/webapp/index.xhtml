@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
                 template="WEB-INF/template/_default.xhtml">
    <ui:define name="content">
       <div class="container">
-         <form class="form-inline">
+         <h:form class="form-inline">
             <div class="input-group">
                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-pencil"/>
                </span>
-               <input type="text" class="form-control" id="todo" placeholder="Buy a milk"/>
+               <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="Buy a milk"/>
                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-primary">追加</button>
+                  <h:commandButton action="#{todoAction.create}" value="追加" styleClass="btn btn-primary"/>
                </span>
             </div>
-         </form>
+         </h:form>
          <ul class="list-group">
-            <ui:repeat value="#{emptyCollection}" var="item">
+            <ui:repeat value="#{todoAction.result}" var="item">
             <li class="list-group-item">
-               <span class="glyphicon glyphicon-unchecked"/>
-               Buy a milk #{item}
+               <span class="glyphicon glyphicon-#{item.done ? 'checked': 'unchecked'}"/>
+               #{item.task}
             </li>
             </ui:repeat>
          </ul>
