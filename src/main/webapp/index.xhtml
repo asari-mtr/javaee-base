@@ -29,10 +29,11 @@
                    <h:selectBooleanCheckbox value="#{item.done}">
                        <f:ajax event="change" execute="@this" render="items" listener="#{todoAction.check(item)}"/>
                    </h:selectBooleanCheckbox>
-                   #{item.task}
-                     <h:commandButton action="#{todoAction.delete(item)}" value="削除" styleClass="btn btn-danger btn-xs">
-                        <f:ajax execute="@form" render="items"/>
-                     </h:commandButton>
+                   <h:outputText value="#{item.task}"/>
+                   <h:outputText value=" (@done #{item.updateDate})" styleClass="text-muted" rendered="#{item.done}"/>
+                   <h:commandButton action="#{todoAction.delete(item)}" value="削除" styleClass="btn btn-danger btn-xs">
+                      <f:ajax execute="@form" render="items"/>
+                   </h:commandButton>
                </li>
                </ui:repeat>
             </ul>

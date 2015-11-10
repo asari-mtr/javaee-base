@@ -63,6 +63,8 @@ public class TodoAction implements Action {
       todoModel.setId(i.getId());
       todoModel.setDone(i.isDone());
       todoModel.setTask(i.getTask());
+      todoModel.setCreateDate(i.getCreateDate());
+      todoModel.setUpdateDate(i.getUpdateDate());
       return todoModel;
     }).collect(Collectors.toList());
     return result;
