@@ -16,18 +16,22 @@ public abstract class AbstractEntity implements Entity {
   @Version
   private long version;
 
+  @Override
   public Long getId() {
     return id;
   }
 
+  @Override
   public void setId(Long id) {
     this.id = id;
   }
 
+  @Override
   public long getVersion() {
     return version;
   }
 
+  @Override
   public void setVersion(long version) {
     this.version = version;
   }
