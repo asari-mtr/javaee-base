@@ -5,7 +5,9 @@ import jp.co.anywhere.entity.TaskItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.Collection;
 
 /**
@@ -62,8 +64,11 @@ public class SimpleRepository {
    * @return 対象のテーブル全件
    */
   public <E extends Entity> Collection<E> findAll(Class<E> clazz) {
-    CriteriaQuery<E> query = entityManager.getCriteriaBuilder().createQuery(clazz);
-    CriteriaQuery<E> all = query.select(query.from(clazz));
-    return entityManager.createQuery(all).getResultList();
+    CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+    CriteriaQuery<E> query = builder.createQuery(clazz);
+    Root<E> root = query.from(clazz);
+    // TODO MetaModelでsortしたい。とりあえず、idのdescで
+    query.select(root).orderBy(builder.desc(root.get("id")));
+    return entityManager.createQuery(query).getResultList();
   }
 }
