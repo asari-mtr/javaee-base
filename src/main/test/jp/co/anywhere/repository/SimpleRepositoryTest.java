@@ -1,8 +1,6 @@
 package jp.co.anywhere.repository;
 
-import com.sun.javafx.tk.Toolkit;
 import jp.co.anywhere.entity.TaskItem;
-import jp.co.anywhere.repository.SimpleRepository;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -31,7 +29,7 @@ public class SimpleRepositoryTest {
   }
 
   @Inject
-  private SimpleRepository repository;
+  private SimpleRepository<TaskItem> repository;
 
   @Test
   public void test() {

@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class TodoService extends AbstractService<TodoModel> {
 
   @Inject
-  private SimpleRepository repository;
+  private SimpleRepository<TaskItem> repository;
 
   @Inject
   private Converter<TodoModel, TaskItem> converter;
@@ -28,7 +28,7 @@ public class TodoService extends AbstractService<TodoModel> {
 
   @Transactional
   public void delete(TodoModel todo) {
-    repository.delete(TaskItem.class, todo.getId());
+    repository.delete(todo.getId());
   }
 
   public Collection<TodoModel> findAll() {
@@ -38,7 +38,7 @@ public class TodoService extends AbstractService<TodoModel> {
 
   @Transactional
   public void update(TodoModel todo) {
-    TaskItem taskItem = repository.get(TaskItem.class, todo.getId());
+    TaskItem taskItem = repository.get(todo.getId());
     taskItem.setTask(todo.getTask());
     taskItem.setDone(todo.isDone());
     repository.update(taskItem);

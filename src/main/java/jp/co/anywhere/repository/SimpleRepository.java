@@ -12,48 +12,48 @@ import java.util.Collection;
 /**
  * Created by asari on 2015/11/07.
  */
-public class SimpleRepository {
+public class SimpleRepository<E extends Entity> {
 
-  @PersistenceContext(name = "primary")
   private EntityManager entityManager;
 
+  private Class<E> clazz;
+
+  public SimpleRepository(Class<E> clazz, EntityManager entityManager) {
+    this.clazz = clazz;
+    this.entityManager = entityManager;
+  }
+  
   /**
    * 指定されたEntityを保存する
    * @param entity 保存対象のEntity
-   * @param <E> Entityのサブクラス
    */
-  public <E extends Entity> void save(E entity) {
+  public void save(E entity) {
     entityManager.persist(entity);
   }
 
   /**
    * 指定されたEntityを削除する
-   * @param entity 削除対象のテーブル
    * @param id 削除対象のID
    */
-  public <E extends Entity> void delete(Class<E> entity, Long id) {
-    E e = get(entity, id);
-    entityManager.remove(e);
+  public void delete(Long id) {
+    entityManager.remove(get(id));
   }
 
   /**
    * 指定されたEntityを更新する
    * attachされている必要がある
    * @param entity 更新対象のEntity
-   * @param <E> Entityのサブクラス
    */
-  public <E extends Entity> void update(E entity) {
+  public void update(E entity) {
     entityManager.merge(entity);
   }
 
   /**
    * 指定されたIDのEntityを取得する
-   * @param clazz 取得するテーブル
    * @param id ID
-   * @param <E> Entityのサブクラス
    * @return 指定されたIDのEntity
    */
-  public <E extends Entity> E get(Class<E> clazz, Long id) {
+  public E get(Long id) {
     return entityManager.find(clazz, id);
   }
   /**
@@ -62,7 +62,7 @@ public class SimpleRepository {
    * @param <E> Entityのサブクラス
    * @return 対象のテーブル全件
    */
-  public <E extends Entity> Collection<E> findAll(Class<E> clazz) {
+  public Collection<E> findAll(Class<E> clazz) {
     CriteriaBuilder builder = entityManager.getCriteriaBuilder();
     CriteriaQuery<E> query = builder.createQuery(clazz);
     Root<E> root = query.from(clazz);
