@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Created by asari on 2015/11/11.
  */
-public class TodoService implements Service {
+public class TodoService extends AbstractService<TodoModel> {
 
   @Inject
   private SimpleRepository repository;
