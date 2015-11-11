@@ -1,7 +1,6 @@
 package jp.co.anywhere.repository;
 
 import jp.co.anywhere.entity.Entity;
-import jp.co.anywhere.entity.TaskItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

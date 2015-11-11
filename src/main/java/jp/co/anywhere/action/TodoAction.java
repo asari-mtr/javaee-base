@@ -1,14 +1,11 @@
 package jp.co.anywhere.action;
 
 import jp.co.anywhere.model.TodoModel;
-import jp.co.anywhere.repository.SimpleRepository;
 import jp.co.anywhere.service.Service;
-import jp.co.anywhere.service.TodoService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 import java.util.Collection;
 
 /**

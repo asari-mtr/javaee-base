@@ -3,7 +3,6 @@ package jp.co.anywhere.service;
 import jp.co.anywhere.entity.TaskItem;
 import jp.co.anywhere.model.TodoModel;
 import jp.co.anywhere.repository.SimpleRepository;
-import jp.co.anywhere.service.Service;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;

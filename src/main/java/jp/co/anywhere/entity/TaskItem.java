@@ -1,7 +1,5 @@
 package jp.co.anywhere.entity;
 
-import jp.co.anywhere.entity.AbstractEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
