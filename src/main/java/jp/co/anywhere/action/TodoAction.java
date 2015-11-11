@@ -1,18 +1,14 @@
 package jp.co.anywhere.action;
 
-import com.sun.javafx.tk.Toolkit;
-import jp.co.anywhere.action.Action;
-import jp.co.anywhere.entity.Entity;
-import jp.co.anywhere.entity.TaskItem;
 import jp.co.anywhere.model.TodoModel;
 import jp.co.anywhere.repository.SimpleRepository;
+import jp.co.anywhere.service.TodoService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 /**
  * Created by asari on 2015/11/07.
@@ -22,17 +18,13 @@ import java.util.stream.Collectors;
 public class TodoAction implements Action {
 
   @Inject
-  private SimpleRepository repository;
+  private TodoService service;
 
   /**
    * タスクの作成
    */
-  @Transactional
   public void create(TodoModel todo) {
-    TaskItem taskItem = new TaskItem();
-    taskItem.setTask(todo.getTask());
-
-    repository.save(taskItem);
+    service.save(todo);
 
     // TODO ajax更新の場合taskの値が残ってしまうので削除処理を入れておく、なんとかならないのか
     todo.setTask("");
@@ -41,16 +33,12 @@ public class TodoAction implements Action {
   /**
    * タスクの削除
    */
-  @Transactional
   public void delete(TodoModel todo) {
-    repository.delete(TaskItem.class, todo.getId());
+    service.delete(todo);
   }
-  
-  @Transactional
+
   public void check(TodoModel todo) {
-    TaskItem taskItem = repository.get(TaskItem.class, todo.getId());
-    taskItem.setDone(!taskItem.isDone());
-    repository.update(taskItem);
+    service.changeDone(todo, !todo.isDone());
   }
 
   /**
@@ -58,15 +46,6 @@ public class TodoAction implements Action {
    * @return
    */
   public Collection<TodoModel> getResult() {
-    Collection<TodoModel> result = repository.findAll(TaskItem.class).stream().map(i -> {
-      TodoModel todoModel = new TodoModel();
-      todoModel.setId(i.getId());
-      todoModel.setDone(i.isDone());
-      todoModel.setTask(i.getTask());
-      todoModel.setCreateDate(i.getCreateDate());
-      todoModel.setUpdateDate(i.getUpdateDate());
-      return todoModel;
-    }).collect(Collectors.toList());
-    return result;
+    return service.findAll();
   }
 }
