@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Created by asari on 2015/11/11.
  */
+@Transactional
 public class TodoService extends AbstractService<TodoModel> {
 
   @Inject
@@ -21,12 +22,10 @@ public class TodoService extends AbstractService<TodoModel> {
   @Inject
   private Converter<TodoModel, TaskItem> converter;
 
-  @Transactional
   public void save(TodoModel todo) {
     repository.save(converter.toEntity(new TaskItem(), todo));
   }
 
-  @Transactional
   public void delete(TodoModel todo) {
     repository.delete(todo.getId());
   }
@@ -36,7 +35,6 @@ public class TodoService extends AbstractService<TodoModel> {
     return result;
   }
 
-  @Transactional
   public void update(TodoModel todo) {
     TaskItem taskItem = repository.get(todo.getId());
     repository.save(converter.toEntity(taskItem, todo));
