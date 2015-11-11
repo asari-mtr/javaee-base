@@ -1,5 +1,6 @@
 package jp.co.anywhere.service;
 
+import jp.co.anywhere.converter.Converter;
 import jp.co.anywhere.entity.TaskItem;
 import jp.co.anywhere.model.TodoModel;
 import jp.co.anywhere.repository.SimpleRepository;
@@ -17,12 +18,12 @@ public class TodoService extends AbstractService<TodoModel> {
   @Inject
   private SimpleRepository repository;
 
+  @Inject
+  private Converter<TodoModel, TaskItem> converter;
+
   @Transactional
   public void save(TodoModel todo) {
-    TaskItem taskItem = new TaskItem();
-    taskItem.setTask(todo.getTask());
-
-    repository.save(taskItem);
+    repository.save(converter.toEntity(todo));
   }
 
   @Transactional
@@ -31,15 +32,7 @@ public class TodoService extends AbstractService<TodoModel> {
   }
 
   public Collection<TodoModel> findAll() {
-    Collection<TodoModel> result = repository.findAll(TaskItem.class).stream().map(i -> {
-      TodoModel todoModel = new TodoModel();
-      todoModel.setId(i.getId());
-      todoModel.setDone(i.isDone());
-      todoModel.setTask(i.getTask());
-      todoModel.setCreateDate(i.getCreateDate());
-      todoModel.setUpdateDate(i.getUpdateDate());
-      return todoModel;
-    }).collect(Collectors.toList());
+    Collection<TodoModel> result = repository.findAll(TaskItem.class).stream().map(converter::toModel).collect(Collectors.toList());
     return result;
   }
 
