@@ -45,9 +45,11 @@ public class TodoService extends AbstractService<TodoModel> {
   }
 
   @Transactional
-  public void changeDone(TodoModel todo, boolean done) {
+  public void update(TodoModel todo) {
     TaskItem taskItem = repository.get(TaskItem.class, todo.getId());
-    taskItem.setDone(done);
+    taskItem.setTask(todo.getTask());
+    taskItem.setDone(todo.isDone());
     repository.update(taskItem);
   }
+
 }

@@ -2,6 +2,7 @@ package jp.co.anywhere.action;
 
 import jp.co.anywhere.model.TodoModel;
 import jp.co.anywhere.repository.SimpleRepository;
+import jp.co.anywhere.service.Service;
 import jp.co.anywhere.service.TodoService;
 
 import javax.enterprise.context.RequestScoped;
@@ -18,7 +19,7 @@ import java.util.Collection;
 public class TodoAction implements Action {
 
   @Inject
-  private TodoService service;
+  private Service<TodoModel> service;
 
   /**
    * タスクの作成
@@ -38,7 +39,7 @@ public class TodoAction implements Action {
   }
 
   public void check(TodoModel todo) {
-    service.changeDone(todo, !todo.isDone());
+    service.update(todo);
   }
 
   /**
