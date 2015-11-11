@@ -23,7 +23,7 @@ public class TodoService extends AbstractService<TodoModel> {
 
   @Transactional
   public void save(TodoModel todo) {
-    repository.save(converter.toEntity(todo));
+    repository.save(converter.toEntity(new TaskItem(), todo));
   }
 
   @Transactional
@@ -39,9 +39,7 @@ public class TodoService extends AbstractService<TodoModel> {
   @Transactional
   public void update(TodoModel todo) {
     TaskItem taskItem = repository.get(todo.getId());
-    taskItem.setTask(todo.getTask());
-    taskItem.setDone(todo.isDone());
-    repository.update(taskItem);
+    repository.save(converter.toEntity(taskItem, todo));
   }
 
 }

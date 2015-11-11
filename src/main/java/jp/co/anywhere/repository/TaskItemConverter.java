@@ -20,8 +20,7 @@ public class TaskItemConverter implements Converter<TodoModel, TaskItem> {
   }
 
   @Override
-  public TaskItem toEntity(TodoModel model) {
-    TaskItem taskItem = new TaskItem();
+  public TaskItem toEntity(TaskItem taskItem, TodoModel model) {
     taskItem.setId(model.getId());
     taskItem.setTask(model.getTask());
     taskItem.setDone(model.isDone());

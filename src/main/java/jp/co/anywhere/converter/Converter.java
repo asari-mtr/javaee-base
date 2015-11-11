@@ -8,5 +8,5 @@ import jp.co.anywhere.model.Model;
  */
 public interface Converter<M extends Model, E extends Entity> {
   M toModel(E entity);
-  E toEntity(M model);
+  E toEntity(E entity, M model);
 }

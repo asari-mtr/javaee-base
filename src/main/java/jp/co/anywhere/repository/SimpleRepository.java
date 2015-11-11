@@ -28,7 +28,11 @@ public class SimpleRepository<E extends Entity> {
    * @param entity 保存対象のEntity
    */
   public void save(E entity) {
-    entityManager.persist(entity);
+    if(entity.isPersist()) {
+      entityManager.merge(entity);
+    } else {
+      entityManager.persist(entity);
+    }
   }
 
   /**
@@ -37,15 +41,6 @@ public class SimpleRepository<E extends Entity> {
    */
   public void delete(Long id) {
     entityManager.remove(get(id));
-  }
-
-  /**
-   * 指定されたEntityを更新する
-   * attachされている必要がある
-   * @param entity 更新対象のEntity
-   */
-  public void update(E entity) {
-    entityManager.merge(entity);
   }
 
   /**
