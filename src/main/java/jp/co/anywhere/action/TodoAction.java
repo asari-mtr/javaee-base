@@ -1,4 +1,4 @@
-package jp.co.anywhere;
+package jp.co.anywhere.action;
 
 import com.sun.javafx.tk.Toolkit;
 import jp.co.anywhere.action.Action;
