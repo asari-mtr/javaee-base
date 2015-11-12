@@ -1,4 +1,4 @@
-package jp.co.anywhere.mock;
+package jp.co.anywhere.common.mock;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;

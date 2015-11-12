@@ -1,4 +1,4 @@
-package jp.co.anywhere.entity;
+package jp.co.anywhere.producer.shared;
 
 
 import javax.persistence.*;

@@ -1,9 +1,10 @@
-package jp.co.anywhere.service;
+package jp.co.anywhere.producer.service.todo;
 
-import jp.co.anywhere.converter.Converter;
-import jp.co.anywhere.entity.TaskItem;
-import jp.co.anywhere.model.TodoModel;
-import jp.co.anywhere.repository.SimpleRepository;
+import jp.co.anywhere.producer.entity.AbstractService;
+import jp.co.anywhere.common.Converter;
+import jp.co.anywhere.producer.entity.TaskItem;
+import jp.co.anywhere.consumer.todo.TodoModel;
+import jp.co.anywhere.producer.repository.SimpleRepository;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;

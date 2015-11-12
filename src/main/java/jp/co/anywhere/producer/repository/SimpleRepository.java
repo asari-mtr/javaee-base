@@ -1,9 +1,8 @@
-package jp.co.anywhere.repository;
+package jp.co.anywhere.producer.repository;
 
-import jp.co.anywhere.entity.Entity;
+import jp.co.anywhere.common.Entity;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;

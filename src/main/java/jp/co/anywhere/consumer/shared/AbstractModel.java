@@ -1,4 +1,4 @@
-package jp.co.anywhere.model;
+package jp.co.anywhere.consumer.shared;
 
 import java.util.Date;
 

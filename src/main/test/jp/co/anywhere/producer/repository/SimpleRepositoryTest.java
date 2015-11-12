@@ -1,6 +1,6 @@
-package jp.co.anywhere.repository;
+package jp.co.anywhere.producer.repository;
 
-import jp.co.anywhere.entity.TaskItem;
+import jp.co.anywhere.producer.entity.TaskItem;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.inject.Inject;
-
 import java.util.Collection;
 
 import static org.hamcrest.core.Is.is;

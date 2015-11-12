@@ -1,8 +1,8 @@
-package jp.co.anywhere.action;
+package jp.co.anywhere.consumer.todo;
 
-import jp.co.anywhere.interceptor.Cacheable;
-import jp.co.anywhere.model.TodoModel;
-import jp.co.anywhere.service.Service;
+import jp.co.anywhere.common.Action;
+import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
+import jp.co.anywhere.common.Service;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package jp.co.anywhere.service;
+package jp.co.anywhere.common;
 
 import java.io.Serializable;
 import java.util.Collection;

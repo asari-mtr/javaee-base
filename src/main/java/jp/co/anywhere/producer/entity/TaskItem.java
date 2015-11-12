@@ -1,4 +1,6 @@
-package jp.co.anywhere.entity;
+package jp.co.anywhere.producer.entity;
+
+import jp.co.anywhere.common.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package jp.co.anywhere.converter;
+package jp.co.anywhere.common;
 
 import jp.co.anywhere.entity.Entity;
 import jp.co.anywhere.model.Model;

@@ -1,6 +1,6 @@
-package jp.co.anywhere.repository;
+package jp.co.anywhere.producer.repository;
 
-import jp.co.anywhere.entity.TaskItem;
+import jp.co.anywhere.producer.entity.TaskItem;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;

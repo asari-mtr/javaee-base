@@ -1,4 +1,4 @@
-package jp.co.anywhere.interceptor;
+package jp.co.anywhere.consumer.shared.interceptor;
 
 import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.*;

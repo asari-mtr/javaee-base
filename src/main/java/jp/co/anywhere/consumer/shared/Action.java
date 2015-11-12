@@ -1,4 +1,4 @@
-package jp.co.anywhere.action;
+package jp.co.anywhere.consumer.shared;
 
 import java.io.Serializable;
 
