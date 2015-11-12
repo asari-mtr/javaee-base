@@ -1,5 +1,6 @@
 package jp.co.anywhere.action;
 
+import jp.co.anywhere.interceptor.Cacheable;
 import jp.co.anywhere.model.TodoModel;
 import jp.co.anywhere.service.Service;
 
@@ -43,6 +44,7 @@ public class TodoAction implements Action {
    * タスクの取得
    * @return
    */
+  @Cacheable
   public Collection<TodoModel> getResult() {
     return service.findAll();
   }
