@@ -1,6 +1,5 @@
-package jp.co.anywhere.repository;
+package jp.co.anywhere.converter;
 
-import jp.co.anywhere.converter.Converter;
 import jp.co.anywhere.entity.TaskItem;
 import jp.co.anywhere.model.TodoModel;
 
