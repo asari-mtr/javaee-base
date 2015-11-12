@@ -23,7 +23,14 @@ public class TodoService extends AbstractService<TodoModel> {
   private Converter<TodoModel, TaskItem> converter;
 
   public void save(TodoModel todo) {
-    repository.save(converter.toEntity(new TaskItem(), todo));
+    Long id = todo.getId();
+    TaskItem e;
+    if(id == null){
+      e = new TaskItem();
+    } else {
+      e = repository.get(id);
+    }
+    repository.save(converter.toEntity(e, todo));
   }
 
   public void delete(TodoModel todo) {
@@ -31,13 +38,7 @@ public class TodoService extends AbstractService<TodoModel> {
   }
 
   public Collection<TodoModel> findAll() {
-    Collection<TodoModel> result = repository.findAll(TaskItem.class).stream().map(converter::toModel).collect(Collectors.toList());
-    return result;
-  }
-
-  public void update(TodoModel todo) {
-    TaskItem taskItem = repository.get(todo.getId());
-    repository.save(converter.toEntity(taskItem, todo));
+    return repository.findAll(TaskItem.class).stream().map(converter::toModel).collect(Collectors.toList());
   }
 
 }

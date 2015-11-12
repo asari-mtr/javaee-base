@@ -36,7 +36,7 @@ public class TodoAction implements Action {
   }
 
   public void check(TodoModel todo) {
-    service.update(todo);
+    service.save(todo);
   }
 
   /**

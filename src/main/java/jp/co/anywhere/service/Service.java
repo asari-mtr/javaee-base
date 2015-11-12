@@ -9,6 +9,5 @@ import java.util.Collection;
 public interface Service<E> extends Serializable {
   void save(E e);
   void delete(E e);
-  void update(E e);
   Collection<E> findAll();
 }
