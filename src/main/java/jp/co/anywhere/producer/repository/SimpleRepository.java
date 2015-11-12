@@ -1,6 +1,6 @@
 package jp.co.anywhere.producer.repository;
 
-import jp.co.anywhere.common.Entity;
+import jp.co.anywhere.producer.shared.Entity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;

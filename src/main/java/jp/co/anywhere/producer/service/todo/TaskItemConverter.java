@@ -1,7 +1,8 @@
 package jp.co.anywhere.producer.service.todo;
 
-import jp.co.anywhere.entity.TaskItem;
-import jp.co.anywhere.model.TodoModel;
+import jp.co.anywhere.common.Converter;
+import jp.co.anywhere.consumer.todo.TodoModel;
+import jp.co.anywhere.producer.entity.TaskItem;
 
 /**
  * Created by asari on 2015/11/11.

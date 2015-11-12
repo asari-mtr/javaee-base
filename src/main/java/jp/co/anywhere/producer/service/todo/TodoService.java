@@ -1,6 +1,6 @@
 package jp.co.anywhere.producer.service.todo;
 
-import jp.co.anywhere.producer.entity.AbstractService;
+import jp.co.anywhere.producer.shared.AbstractService;
 import jp.co.anywhere.common.Converter;
 import jp.co.anywhere.producer.entity.TaskItem;
 import jp.co.anywhere.consumer.todo.TodoModel;

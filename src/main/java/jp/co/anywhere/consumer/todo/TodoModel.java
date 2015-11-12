@@ -1,6 +1,6 @@
 package jp.co.anywhere.consumer.todo;
 
-import jp.co.anywhere.consumer.shared.model.AbstractModel;
+import jp.co.anywhere.consumer.shared.AbstractModel;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

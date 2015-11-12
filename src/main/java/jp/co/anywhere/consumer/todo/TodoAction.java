@@ -1,6 +1,6 @@
 package jp.co.anywhere.consumer.todo;
 
-import jp.co.anywhere.common.Action;
+import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import jp.co.anywhere.common.Service;
 
