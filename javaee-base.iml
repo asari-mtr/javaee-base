@@ -34,7 +34,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/test" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
+      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/javaee-base-1.0-SNAPSHOT" />
+      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -46,6 +50,8 @@
     <orderEntry type="library" scope="PROVIDED" name="JBoss 8.2.0.Final - JSF" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="JBoss 8.2.0.Final - CDI: Contexts and Dependency Injection" level="application_server_libraries" />
     <orderEntry type="library" name="Arquillian JUnit:Release" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-jpamodelgen:5.0.3.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.omnifaces:omnifaces:2.1" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
