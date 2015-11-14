@@ -11,9 +11,9 @@
                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-pencil"/>
                </span>
-               <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="Buy a milk." p:autofocus="true"/>
+               <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="#{res.placeholder_add_task}" p:autofocus="true"/>
                <span class="input-group-btn">
-                  <h:commandButton action="#{todoAction.create(todoModel)}" value="追加" styleClass="btn btn-primary">
+                  <h:commandButton action="#{todoAction.create(todoModel)}" value="#{res.action_add}" styleClass="btn btn-primary">
                      <f:ajax execute="@form" render="todo items"/>
                   </h:commandButton>
                </span>
@@ -30,8 +30,9 @@
                        <f:ajax event="change" execute="@this" render="items" listener="#{todoAction.check(item)}"/>
                    </h:selectBooleanCheckbox>
                    <h:outputText value="#{item.task}"/>
+                   <!-- formatter -->
                    <h:outputText value=" (@done #{item.updateDate})" styleClass="text-muted" rendered="#{item.done}"/>
-                   <h:commandButton action="#{todoAction.delete(item)}" value="削除" styleClass="btn btn-danger btn-xs">
+                   <h:commandButton action="#{todoAction.delete(item)}" value="#{res.action_delete}" styleClass="btn btn-danger btn-xs">
                       <f:ajax execute="@this" render="items"/>
                    </h:commandButton>
                </li>
