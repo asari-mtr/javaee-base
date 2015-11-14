@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template/_default.xhtml">
+   <ui:define name="content">
+       <ul>
+           <li>ユーザの詳細閲覧を行う</li>
+           <li>編集画面に遷移できる</li>
+           <li>戻るボタンは検索(index.xhtlm)に遷移する</li>
+           <li>削除ボタンは検索(index.xhtlm)に遷移する</li>
+       </ul>
+       <h:link outcome="index.xhtml" value="#{res.action_back}" styleClass="btn btn-primary" />
+       <h:link outcome="edit.xhtml" value="#{res.action_edit}" styleClass="btn btn-primary" />
+       <h:link outcome="index.xhtml" value="#{res.action_delete}" styleClass="btn btn-primary" />
+   </ui:define>
+</ui:composition>

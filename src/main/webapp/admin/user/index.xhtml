@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template/_default.xhtml">
+   <ui:define name="content">
+       <ul>
+           <li>登録ユーザの検索をする</li>
+           <li>ユーザの登録画面、詳細画面に遷移できる</li>
+       </ul>
+       <h:link outcome="edit.xhtml" value="#{res.action_register}" styleClass="btn btn-primary" />
+       <h:link outcome="view.xhtml" value="#{res.action_view}" styleClass="btn btn-primary" />
+   </ui:define>
+</ui:composition>
