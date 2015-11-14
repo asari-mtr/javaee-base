@@ -1,6 +1,7 @@
 package jp.co.anywhere.producer.repository;
 
-import jp.co.anywhere.producer.shared.Entity;
+import jp.co.anywhere.producer.shared.AbstractEntity;
+import jp.co.anywhere.producer.shared.AbstractEntity_;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -11,7 +12,7 @@ import java.util.Collection;
 /**
  * Created by asari on 2015/11/07.
  */
-public class SimpleRepository<E extends Entity> {
+public class SimpleRepository<E extends AbstractEntity> {
 
   private EntityManager entityManager;
 
@@ -53,7 +54,6 @@ public class SimpleRepository<E extends Entity> {
   /**
    * 全件取得
    * @param clazz 対象のテーブル
-   * @param <E> Entityのサブクラス
    * @return 対象のテーブル全件
    */
   public Collection<E> findAll(Class<E> clazz) {
@@ -61,7 +61,7 @@ public class SimpleRepository<E extends Entity> {
     CriteriaQuery<E> query = builder.createQuery(clazz);
     Root<E> root = query.from(clazz);
     // TODO MetaModelでsortしたい。とりあえず、idのdescで
-    query.select(root).orderBy(builder.desc(root.get("id")));
+    query.select(root).orderBy(builder.desc(root.get(AbstractEntity_.id)));
     return entityManager.createQuery(query).getResultList();
   }
 }
