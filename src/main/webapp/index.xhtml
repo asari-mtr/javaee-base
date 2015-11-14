@@ -31,7 +31,9 @@
                    </h:selectBooleanCheckbox>
                    <h:outputText value="#{item.task}"/>
                    <!-- formatter -->
-                   <h:outputText value=" (@done #{item.updateDate})" styleClass="text-muted" rendered="#{item.done}"/>
+                   <h:outputFormat value="#{res.message_done}" styleClass="text-muted" rendered="#{item.done}">
+                       <f:param value="#{item.updateDate}"/>
+                   </h:outputFormat>
                    <h:commandButton action="#{todoAction.delete(item)}" value="#{res.action_delete}" styleClass="btn btn-danger btn-xs">
                       <f:ajax execute="@this" render="items"/>
                    </h:commandButton>
