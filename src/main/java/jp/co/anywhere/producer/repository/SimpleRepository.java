@@ -60,7 +60,6 @@ public class SimpleRepository<E extends AbstractEntity> {
     CriteriaBuilder builder = entityManager.getCriteriaBuilder();
     CriteriaQuery<E> query = builder.createQuery(clazz);
     Root<E> root = query.from(clazz);
-    // TODO MetaModelでsortしたい。とりあえず、idのdescで
     query.select(root).orderBy(builder.desc(root.get(AbstractEntity_.id)));
     return entityManager.createQuery(query).getResultList();
   }
