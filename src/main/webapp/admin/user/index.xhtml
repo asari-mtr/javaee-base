@@ -20,17 +20,13 @@
                <f:param name="id" value="#{user.id}"/>
                <div class="row">
                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                       name#{user.name}
+                       <h:outputText value="#{user.name}"/>
                    </div>
                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                       email#{user.email}
+                       <h:outputText value="#{user.email}"/>
                    </div>
                </div>
            </h:link>
        </ui:repeat>
-       <ul>
-           <li>登録ユーザの検索をする</li>
-           <li>ユーザの登録画面、詳細画面に遷移できる</li>
-       </ul>
    </ui:define>
 </ui:composition>
