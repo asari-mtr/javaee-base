@@ -1,15 +1,12 @@
 package jp.co.anywhere.consumer.todo;
 
 import jp.co.anywhere.consumer.shared.AbstractModel;
-
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import jp.co.anywhere.consumer.shared.stereotype.Model;
 
 /**
  * Created by asari on 2015/11/07.
  */
-@RequestScoped
-@Named
+@Model
 public class TodoModel extends AbstractModel {
   /** タスク */
   private String task;
