@@ -5,34 +5,32 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 template="/WEB-INF/template/_default.xhtml">
     <ui:define name="content">
-        <form class="form-horizontal">
+        <h:form class="form-horizontal">
             <div class="form-group">
                 <label for="username" class="col-sm-2 control-label">ユーザ名</label>
                 <div class="col-sm-8">
-                    <input type="username" class="form-control" id="username" placeholder="tanaka"/>
+                    <h:inputText value="#{userModel.name}" styleClass="form-control" id="username" p:placeholder="tanaka"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">メールアドレス</label>
                 <div class="col-sm-8">
-                    <input type="email" class="form-control" id="email" placeholder="tanaka@somewhere.com"/>
+                    <h:inputText value="#{userModel.email}" styleClass="form-control" id="email" p:placeholder="tanaka@somewhere.com"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">パスワード</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="password" placeholder="パスワード"/>
+                    <h:inputSecret value="#{userModel.password}" styleClass="form-control" id="password" p:placeholder="パスワード"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                    <h:link outcome="view.xhtml" value="#{res.action_register}" styleClass="btn btn-primary">
-                        <f:param name="id" value="#{param['id']}" disable="#{not param.containsKey('id')}"/>
-                    </h:link>
+                    <h:commandButton action="#{userAction.create(userModel)}" value="#{res.action_register}" styleClass="btn btn-primary"/>
                     <h:link outcome="index.xhtml" value="#{res.action_back}" styleClass="btn btn-default"/>
                 </div>
             </div>
-        </form>
+        </h:form>
         <ul>
             <li>ユーザの作成、編集を行う</li>
             <li>保存後は詳細画面に遷移する</li>

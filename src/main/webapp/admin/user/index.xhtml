@@ -15,19 +15,19 @@
                <h:link outcome="edit.xhtml" value="#{res.action_new}" styleClass="btn btn-info" />
            </form>
        </div>
-       <c:forEach begin="1" end="10" var="item">
+       <ui:repeat value="#{userAction.result}" var="user">
            <h:link outcome="view.xhtml" styleClass="list-group-item">
-               <f:param name="id" value="#{item}"/>
+               <f:param name="id" value="#{user.id}"/>
                <div class="row">
                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                       name#{item}
+                       name#{user.name}
                    </div>
                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                       email#{item}
+                       email#{user.email}
                    </div>
                </div>
            </h:link>
-       </c:forEach>
+       </ui:repeat>
        <ul>
            <li>登録ユーザの検索をする</li>
            <li>ユーザの登録画面、詳細画面に遷移できる</li>
