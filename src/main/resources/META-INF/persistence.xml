@@ -4,6 +4,7 @@
     <persistence-unit name="primary">
         <jta-data-source>java:jboss/datasources/javaee</jta-data-source>
         <class>jp.co.anywhere.producer.entity.TaskItem</class>
+        <class>jp.co.anywhere.producer.entity.User</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
