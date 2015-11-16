@@ -30,6 +30,14 @@ public class UserAction implements Action {
   private CacheClear cacheClear;
 
   /**
+   * ユーザ情報の呼び出し
+   */
+  public void load(UserModel user) {
+    // TODO 不正なIDの場合の例外処理追加
+    service.get(user);
+  }
+
+  /**
    * ユーザの作成
    */
   public String create(UserModel user) {

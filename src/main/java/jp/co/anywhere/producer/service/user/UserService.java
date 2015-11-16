@@ -1,6 +1,7 @@
 package jp.co.anywhere.producer.service.user;
 
 import jp.co.anywhere.common.Converter;
+import jp.co.anywhere.common.shared.ObjectHelper;
 import jp.co.anywhere.consumer.user.UserModel;
 import jp.co.anywhere.producer.entity.User;
 import jp.co.anywhere.producer.repository.SimpleRepository;
@@ -21,6 +22,13 @@ public class UserService extends AbstractService<UserModel> {
 
   @Inject
   private Converter<UserModel, User> converter;
+
+  @Override
+  public UserModel get(UserModel userModel) {
+    UserModel result = converter.toModel(repository.get(userModel.getId()));
+    ObjectHelper.copyProperties(result, userModel);
+    return userModel;
+  }
 
   public void save(UserModel user) {
     Long id = user.getId();

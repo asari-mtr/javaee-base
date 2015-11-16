@@ -23,6 +23,12 @@ public class TodoService extends AbstractService<TodoModel> {
   @Inject
   private Converter<TodoModel, TaskItem> converter;
 
+  @Override
+  public TodoModel get(TodoModel todoModel) {
+    // TODO 独自例外に置き換え？不要なメソッドをオーバーライドするのはちょっと変かも
+    throw new UnsupportedOperationException();
+  }
+
   public void save(TodoModel todo) {
     Long id = todo.getId();
     TaskItem e;

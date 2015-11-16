@@ -49,7 +49,11 @@ public class SimpleRepository<E extends AbstractEntity> {
    * @return 指定されたIDのEntity
    */
   public E get(Long id) {
-    return entityManager.find(clazz, id);
+    E result = entityManager.find(clazz, id);
+    if (result == null) {
+      throw new IllegalArgumentException();
+    }
+    return result;
   }
   /**
    * 全件取得
