@@ -22,13 +22,12 @@ public class UserConverter implements Converter<UserModel, User> {
 
   @Override
   public User toEntity(User entity, UserModel model) {
-    User user = new User();
-    user.setId(model.getId());
-    user.setName(model.getName());
-    user.setEmail(model.getEmail());
-    user.setPassword(model.getHashedPassword());
-    user.setCreateDate(model.getCreateDate());
-    user.setUpdateDate(model.getUpdateDate());
-    return user;
+    entity.setId(model.getId());
+    entity.setName(model.getName());
+    entity.setEmail(model.getEmail());
+    entity.setPassword(model.getHashedPassword());
+    entity.setCreateDate(model.getCreateDate());
+    entity.setUpdateDate(model.getUpdateDate());
+    return entity;
   }
 }
