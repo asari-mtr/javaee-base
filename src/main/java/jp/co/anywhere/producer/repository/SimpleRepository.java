@@ -27,12 +27,13 @@ public class SimpleRepository<E extends AbstractEntity> {
    * 指定されたEntityを保存する
    * @param entity 保存対象のEntity
    */
-  public void save(E entity) {
+  public E save(E entity) {
     if(entity.isPersist()) {
       entityManager.merge(entity);
     } else {
       entityManager.persist(entity);
     }
+    return entity;
   }
 
   /**

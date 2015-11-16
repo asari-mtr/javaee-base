@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public interface Service<E extends Model> extends Serializable {
   E get(E e);
-  void save(E e);
+  E save(E e);
   void delete(E e);
   Collection<E> findAll();
 }

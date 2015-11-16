@@ -6,6 +6,7 @@ import jp.co.anywhere.consumer.shared.cache.CacheClear;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Event;
@@ -34,6 +35,9 @@ public class UserAction implements Action {
    */
   public void load(UserModel user) {
     // TODO 不正なIDの場合の例外処理追加
+    if (user.getId() == null) {
+      return;
+    }
     service.get(user);
   }
 
@@ -42,9 +46,11 @@ public class UserAction implements Action {
    */
   public String create(UserModel user) {
     user.setHashedPassword(hashed(user.getPassword()));
-    service.save(user);
+    UserModel saved = service.save(user);
 
-    return "index.xhtml";
+    Faces.getFlash().put("id", saved.getId());
+
+    return "view";
   }
 
   private static String hashed(String password) {

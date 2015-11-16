@@ -29,7 +29,7 @@ public class TodoService extends AbstractService<TodoModel> {
     throw new UnsupportedOperationException();
   }
 
-  public void save(TodoModel todo) {
+  public TodoModel save(TodoModel todo) {
     Long id = todo.getId();
     TaskItem e;
     if(id == null){
@@ -37,7 +37,9 @@ public class TodoService extends AbstractService<TodoModel> {
     } else {
       e = repository.get(id);
     }
-    repository.save(converter.toEntity(e, todo));
+    TaskItem saved = repository.save(converter.toEntity(e, todo));
+
+    return converter.toModel(saved);
   }
 
   public void delete(TodoModel todo) {

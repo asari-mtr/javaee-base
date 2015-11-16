@@ -30,7 +30,7 @@ public class UserService extends AbstractService<UserModel> {
     return userModel;
   }
 
-  public void save(UserModel user) {
+  public UserModel save(UserModel user) {
     Long id = user.getId();
     User e;
     if(id == null){
@@ -38,7 +38,9 @@ public class UserService extends AbstractService<UserModel> {
     } else {
       e = repository.get(id);
     }
-    repository.save(converter.toEntity(e, user));
+    User saved = repository.save(converter.toEntity(e, user));
+
+    return converter.toModel(saved);
   }
 
   public void delete(UserModel user) {

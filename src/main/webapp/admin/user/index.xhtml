@@ -11,12 +11,12 @@
                <div class="form-group">
                    <input type="text" class="form-control" placeholder="Search"/>
                </div>
-               <h:link outcome="index.xhtml" value="#{res.action_search}" styleClass="btn btn-primary" />
-               <h:link outcome="edit.xhtml" value="#{res.action_new}" styleClass="btn btn-info" />
+               <h:link outcome="index" value="#{res.action_search}" styleClass="btn btn-primary" />
+               <h:link outcome="edit" value="#{res.action_new}" styleClass="btn btn-info" />
            </form>
        </div>
        <ui:repeat value="#{userAction.result}" var="user">
-           <h:link outcome="view.xhtml" styleClass="list-group-item">
+           <h:link outcome="view" styleClass="list-group-item">
                <f:param name="id" value="#{user.id}"/>
                <div class="row">
                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
