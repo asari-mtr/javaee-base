@@ -1,9 +1,10 @@
 package jp.co.anywhere.consumer.user;
 
-import jp.co.anywhere.common.Service;
+import jp.co.anywhere.common.shared.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.cache.CacheClear;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
+import jp.co.anywhere.producer.service.user.UserService;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.omnifaces.util.Faces;
@@ -22,7 +23,7 @@ import java.util.Collection;
 public class UserAction implements Action {
 
   @Inject
-  private Service<UserModel> service;
+  private UserService service;
 
   @Inject
   private Event<CacheClear> clearEvent;
@@ -38,7 +39,8 @@ public class UserAction implements Action {
     if (user.getId() == null) {
       return;
     }
-    service.get(user);
+    UserModel userModel = service.get(user);
+    ObjectHelper.copyProperties(userModel, user);
   }
 
   /**

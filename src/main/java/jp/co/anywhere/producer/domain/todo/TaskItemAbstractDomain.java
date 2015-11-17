@@ -1,13 +1,14 @@
-package jp.co.anywhere.producer.service.todo;
+package jp.co.anywhere.producer.domain.todo;
 
-import jp.co.anywhere.common.Converter;
 import jp.co.anywhere.consumer.todo.TodoModel;
+import jp.co.anywhere.producer.shared.AbstractDomain;
 import jp.co.anywhere.producer.entity.TaskItem;
 
 /**
  * Created by asari on 2015/11/11.
  */
-public class TaskItemConverter implements Converter<TodoModel, TaskItem> {
+public class TaskItemAbstractDomain extends AbstractDomain<TodoModel, TaskItem> {
+
   @Override
   public TodoModel toModel(TaskItem entity) {
     TodoModel taskModel = new TodoModel();

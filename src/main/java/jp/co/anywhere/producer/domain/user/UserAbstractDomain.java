@@ -1,13 +1,14 @@
-package jp.co.anywhere.producer.service.user;
+package jp.co.anywhere.producer.domain.user;
 
-import jp.co.anywhere.common.Converter;
 import jp.co.anywhere.consumer.user.UserModel;
+import jp.co.anywhere.producer.shared.AbstractDomain;
 import jp.co.anywhere.producer.entity.User;
 
 /**
  * Created by asari on 2015/11/11.
  */
-public class UserConverter implements Converter<UserModel, User> {
+public class UserAbstractDomain extends AbstractDomain<UserModel, User> {
+
   @Override
   public UserModel toModel(User entity) {
     UserModel userModel = new UserModel();
