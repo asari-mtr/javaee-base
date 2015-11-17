@@ -2,7 +2,7 @@ package jp.co.anywhere.consumer.user;
 
 import jp.co.anywhere.common.shared.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
-import jp.co.anywhere.consumer.shared.cache.CacheClear;
+import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import jp.co.anywhere.producer.service.user.UserService;
 import org.apache.commons.codec.binary.Hex;
@@ -10,7 +10,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Collection;
@@ -24,12 +23,6 @@ public class UserAction implements Action {
 
   @Inject
   private UserService service;
-
-  @Inject
-  private Event<CacheClear> clearEvent;
-
-  @Inject
-  private CacheClear cacheClear;
 
   /**
    * ユーザ情報の呼び出し
@@ -46,6 +39,7 @@ public class UserAction implements Action {
   /**
    * ユーザの作成
    */
+  @ClearCache
   public String create(UserModel user) {
     user.setHashedPassword(hashed(user.getPassword()));
     UserModel saved = service.save(user);
@@ -63,10 +57,9 @@ public class UserAction implements Action {
    * ユーザの削除
    * @param user
    */
+  @ClearCache
   public void delete(UserModel user) {
     service.delete(user);
-
-    clearEvent.fire(cacheClear);
   }
 
   /**

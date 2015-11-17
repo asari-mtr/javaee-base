@@ -1,12 +1,11 @@
 package jp.co.anywhere.consumer.todo;
 
 import jp.co.anywhere.consumer.shared.Action;
-import jp.co.anywhere.consumer.shared.cache.CacheClear;
+import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import jp.co.anywhere.producer.service.todo.TodoService;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Collection;
@@ -21,12 +20,6 @@ public class TodoAction implements Action {
   @Inject
   private TodoService service;
 
-  @Inject
-  private Event<CacheClear> clearEvent;
-
-  @Inject
-  private CacheClear cacheClear;
-
   /**
    * タスクの作成
    */
@@ -40,10 +33,9 @@ public class TodoAction implements Action {
   /**
    * タスクの削除
    */
+  @ClearCache
   public void delete(TodoModel todo) {
     service.delete(todo);
-
-    clearEvent.fire(cacheClear);
   }
 
   public void check(TodoModel todo) {
