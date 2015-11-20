@@ -7,15 +7,15 @@
                 template="/WEB-INF/template/_default.xhtml">
    <ui:define name="content">
        <div class="row">
-           <form class="navbar-form navbar-left" role="search">
+           <h:form class="navbar-form navbar-left">
                <div class="form-group">
-                   <input type="text" class="form-control" placeholder="Search"/>
+                   <h:inputText class="form-control" placeholder="Search" value="#{userParameter.keyword}"/>
                </div>
-               <h:link outcome="index" value="#{res.action_search}" styleClass="btn btn-primary" />
-               <h:link outcome="edit" value="#{res.action_new}" styleClass="btn btn-info" />
-           </form>
+               <h:commandButton value="#{res.action_search}" styleClass="btn btn-primary" />
+               <h:commandButton action="edit" value="#{res.action_new}" styleClass="btn btn-info" />
+           </h:form>
        </div>
-       <ui:repeat value="#{userAction.result}" var="user">
+       <ui:repeat value="#{userAction.getResult(userParameter)}" var="user">
            <h:link outcome="view" styleClass="list-group-item">
                <f:param name="id" value="#{user.id}"/>
                <div class="row">

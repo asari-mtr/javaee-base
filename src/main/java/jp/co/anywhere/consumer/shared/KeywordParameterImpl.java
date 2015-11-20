@@ -1,5 +1,8 @@
 package jp.co.anywhere.consumer.shared;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
  * Created by asari on 2015/11/20.
  */
@@ -14,5 +17,10 @@ public class KeywordParameterImpl implements KeywordParameter {
   @Override
   public void setKeyword(String keyword) {
     this.keyword = keyword;
+  }
+
+  @Override
+  public String toString() {
+    return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
   }
 }

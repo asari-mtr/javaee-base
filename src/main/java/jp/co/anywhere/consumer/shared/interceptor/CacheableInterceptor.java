@@ -10,6 +10,8 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import java.io.Serializable;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by asari on 2015/11/12.
@@ -26,10 +28,16 @@ public class CacheableInterceptor implements Serializable {
 
   @AroundInvoke
   public Object aroundInvoke(InvocationContext context) throws Exception {
-    if (!result.isCached()) {
+    String cacheKey = createCacheKey(context.getParameters());
+    if (!result.isCached(cacheKey)) {
+      result.setKey(cacheKey);
       result.setValue(context.proceed());
     }
     return result.getValue();
+  }
+
+  private String createCacheKey(Object[] parameters) {
+    return Stream.of(parameters).map(Object::toString).collect(Collectors.joining(":"));
   }
 
 }

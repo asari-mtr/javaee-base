@@ -2,6 +2,7 @@ package jp.co.anywhere.producer.shared;
 
 import jp.co.anywhere.common.Converter;
 import jp.co.anywhere.consumer.shared.Model;
+import jp.co.anywhere.consumer.shared.Parameter;
 import jp.co.anywhere.producer.repository.SimpleRepository;
 
 import javax.inject.Inject;
@@ -26,6 +27,10 @@ public abstract class AbstractDomain<M extends Model, E extends AbstractEntity> 
 
   public Collection<M> findAll() {
     return repository.findAll(clazz).stream().map(this::toModel).collect(Collectors.toList());
+  }
+
+  public Collection<M> findMany(Parameter parameter) {
+    return repository.findMany(clazz,parameter).stream().map(this::toModel).collect(Collectors.toList());
   }
 
   public void delete(Long id) {

@@ -67,7 +67,7 @@ public class UserAction implements Action {
    * @return
    */
   @Cacheable
-  public Collection<UserModel> getResult() {
-    return service.findAll();
+  public Collection<UserModel> getResult(UserParameter parameter) {
+    return service.findMany(parameter);
   }
 }

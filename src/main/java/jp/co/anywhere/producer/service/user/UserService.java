@@ -1,6 +1,7 @@
 package jp.co.anywhere.producer.service.user;
 
 import jp.co.anywhere.consumer.user.UserModel;
+import jp.co.anywhere.consumer.user.UserParameter;
 import jp.co.anywhere.producer.shared.AbstractDomain;
 import jp.co.anywhere.producer.entity.User;
 import jp.co.anywhere.producer.shared.AbstractService;
@@ -31,5 +32,9 @@ public class UserService extends AbstractService<UserModel> {
 
   public Collection<UserModel> findAll() {
     return domain.findAll();
+  }
+
+  public Collection<UserModel> findMany(UserParameter parameter) {
+    return domain.findMany(parameter);
   }
 }

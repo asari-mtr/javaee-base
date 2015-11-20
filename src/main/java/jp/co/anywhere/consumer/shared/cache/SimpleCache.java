@@ -11,10 +11,19 @@ import java.io.Serializable;
 @Named
 public class SimpleCache implements Serializable {
 
+  private String key;
   private Object value;
 
-  public boolean isCached() {
-    return value != null;
+  public boolean isCached(String newKey) {
+    return value != null && newKey.equals(key);
+  }
+
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
   }
 
   public void clear() {

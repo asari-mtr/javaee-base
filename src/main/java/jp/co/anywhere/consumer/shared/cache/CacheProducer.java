@@ -1,6 +1,5 @@
 package jp.co.anywhere.consumer.shared.cache;
 
-import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
@@ -26,7 +25,6 @@ public class CacheProducer implements Serializable {
   private SimpleCache requestCache;
 
   @Produces
-  @Dependent
   @Named("requestCache")
   public SimpleCache produceRequestCache() {
     return requestCache;
