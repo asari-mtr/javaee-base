@@ -7,7 +7,7 @@ import jp.co.anywhere.producer.entity.TaskItem;
 /**
  * Created by asari on 2015/11/11.
  */
-public class TaskItemAbstractDomain extends AbstractDomain<TodoModel, TaskItem> {
+public class TaskItemDomain extends AbstractDomain<TodoModel, TaskItem> {
 
   @Override
   public TodoModel toModel(TaskItem entity) {

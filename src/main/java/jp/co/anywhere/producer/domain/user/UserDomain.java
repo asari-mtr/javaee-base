@@ -7,7 +7,7 @@ import jp.co.anywhere.producer.entity.User;
 /**
  * Created by asari on 2015/11/11.
  */
-public class UserAbstractDomain extends AbstractDomain<UserModel, User> {
+public class UserDomain extends AbstractDomain<UserModel, User> {
 
   @Override
   public UserModel toModel(User entity) {
