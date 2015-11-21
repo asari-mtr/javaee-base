@@ -2,6 +2,7 @@ package jp.co.anywhere.consumer.user;
 
 import jp.co.anywhere.consumer.shared.AbstractModel;
 import jp.co.anywhere.consumer.shared.stereotype.Model;
+import jp.co.anywhere.consumer.shared.validator.Email;
 
 /**
  * Created by asari on 2015/11/15.
@@ -9,6 +10,7 @@ import jp.co.anywhere.consumer.shared.stereotype.Model;
 @Model
 public class UserModel extends AbstractModel {
   private String name;
+  @Email
   private String email;
   private String password;
   private String hashedPassword;

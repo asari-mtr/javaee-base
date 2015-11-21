@@ -12,24 +12,25 @@
         <h:form class="form-horizontal">
             <div class="form-group">
                 <label for="username" class="col-sm-2 control-label">ユーザ名</label>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <h:inputText value="#{userModel.name}" styleClass="form-control" id="username" p:placeholder="tanaka" p:autofocus="true"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">メールアドレス</label>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <h:inputText value="#{userModel.email}" styleClass="form-control" id="email" p:placeholder="tanaka@somewhere.com"/>
                 </div>
+                <h:message for="email" styleClass="col-sm-2 alert alert-warning"/>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">パスワード</label>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <h:inputSecret value="#{userModel.password}" styleClass="form-control" id="password" p:placeholder="パスワード"/>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-8">
+                <div class="col-sm-offset-2 col-sm-6">
                     <h:commandButton action="#{userAction.create(userModel)}" value="#{res.action_register}" styleClass="btn btn-primary"/>
                     <h:link outcome="index" value="#{res.action_back}" styleClass="btn btn-default" rendered="#{empty userModel.id}"/>
                     <h:link outcome="view" value="#{res.action_back}" styleClass="btn btn-default" rendered="#{not empty userModel.id}">
