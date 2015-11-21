@@ -3,9 +3,8 @@ package jp.co.anywhere.consumer.user;
 import jp.co.anywhere.common.shared.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
+import jp.co.anywhere.consumer.shared.util.DigestHelper;
 import jp.co.anywhere.producer.service.user.UserService;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
@@ -51,7 +50,7 @@ public class UserAction implements Action {
   }
 
   private static String hashed(String password) {
-    return Hex.encodeHexString(DigestUtils.sha256(password.getBytes()));
+    return DigestHelper.encodeHexString(DigestHelper.sha256(password.getBytes()));
   }
 
   /**
