@@ -4,7 +4,7 @@ import jp.co.anywhere.common.util.DigestHelper;
 import jp.co.anywhere.common.util.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
-import jp.co.anywhere.producer.service.user.UserService;
+import jp.co.anywhere.provider.service.user.UserService;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
