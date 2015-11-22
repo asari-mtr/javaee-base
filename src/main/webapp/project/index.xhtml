@@ -5,6 +5,28 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 template="/WEB-INF/template/_default.xhtml">
    <ui:define name="content">
+       <div class="row">
+           <h:form class="navbar-form navbar-left">
+               <div class="form-group">
+                   <h:inputText class="form-control" placeholder="Search"/>
+               </div>
+               <h:commandButton value="#{res.action_search}" styleClass="btn btn-primary" />
+               <h:commandButton action="edit" value="#{res.action_new}" styleClass="btn btn-info" />
+           </h:form>
+       </div>
+       <ui:repeat value="#{emptyCollection}" var="item" varStatus="status">
+           <h:link outcome="view" styleClass="list-group-item">
+               <f:param name="id" value="#{status.index}"/>
+               <div class="row">
+                   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                       <h:outputText value="name#{status.index}"/>
+                       <ui:fragment rendered="#{status.index % 2 eq 0}">
+                           <span class="glyphicon glyphicon-paperclip"/>
+                       </ui:fragment>
+                   </div>
+               </div>
+           </h:link>
+       </ui:repeat>
        <ul>
            <li>プロジェクトの検索をする</li>
            <li>ユーザはログインしている必要がある</li>
