@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html">
     <div class="navbar navbar-default">
-    	<a class="navbar-brand" href="#">My TODO</a>
+		<h:link outcome="global-home" value="My TODO" styleClass="navbar-brand"/>
     	<ul class="nav navbar-nav">
-    		<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Project</a></li>
-			<li><a href="#">Account</a></li>
+    		<li class="active"><h:link outcome="global-todo" value="TODO"/> </li>
+			<li><h:link outcome="global-project" value="プロジェクト"/></li>
+			<li><h:link outcome="global-account" value="アカウント"/></li>
+			<li><h:link outcome="global-user" value="ユーザ管理"/></li>
+			<li><h:link outcome="signup" value="サインアップ"/></li>
     	</ul>
     </div>
 </ui:composition>

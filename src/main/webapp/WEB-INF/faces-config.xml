@@ -15,6 +15,35 @@
         </resource-bundle>
     </application>
     <navigation-rule>
+        <from-view-id>/*</from-view-id>
+        <navigation-case>
+            <from-outcome>signup</from-outcome>
+            <to-view-id>/signup.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>global-home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>global-todo</from-outcome>
+            <to-view-id>/todo/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>global-project</from-outcome>
+            <to-view-id>/project/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>global-account</from-outcome>
+            <to-view-id>/user/index.xhtml</to-view-id>
+        </navigation-case>
+        <!-- 管理者用 -->
+        <navigation-case>
+            <from-outcome>global-user</from-outcome>
+            <to-view-id>/admin/user/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!--  管理者用/ユーザ管理 -->
+    <navigation-rule>
         <from-view-id>/admin/user/*</from-view-id>
         <navigation-case>
             <from-outcome>index</from-outcome>
