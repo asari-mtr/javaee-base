@@ -1,6 +1,6 @@
 package jp.co.anywhere.consumer.shared.validator;
 
-import jp.co.anywhere.consumer.shared.util.StringHelper;
+import jp.co.anywhere.common.util.StringHelper;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

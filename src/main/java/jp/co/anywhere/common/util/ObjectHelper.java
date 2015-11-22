@@ -1,11 +1,9 @@
-package jp.co.anywhere.consumer.shared.util;
+package jp.co.anywhere.common.util;
 
-import jp.co.anywhere.consumer.shared.exception.SomethingException;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.text.StrBuilder;
 
-import java.io.IOException;
 import java.util.Comparator;
 import java.util.Map;
 
@@ -40,7 +38,7 @@ public class ObjectHelper {
     ObjectUtils.identityToString(builder, object);
   }
 
-  public static void identityToString(Appendable appendable, Object object) throws SomethingException {
+  public static void identityToString(Appendable appendable, Object object) {
     try {
       ObjectUtils.identityToString(appendable, object);
     } catch (Exception e) {
@@ -88,7 +86,7 @@ public class ObjectHelper {
     return ObjectUtils.cloneIfPossible(obj);
   }
 
-  public static void setProperty(Object bean, String name, Object value) throws SomethingException {
+  public static void setProperty(Object bean, String name, Object value) {
     try {
       BeanUtils.setProperty(bean, name, value);
     } catch (Exception e) {
@@ -96,17 +94,16 @@ public class ObjectHelper {
     }
   }
 
-  public static String[] getArrayProperty(Object bean, String name) throws SomethingException {
+  public static String[] getArrayProperty(Object bean, String name) {
     try {
       return BeanUtils.getArrayProperty(bean, name);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static void copyProperty(Object bean, String name, Object value) throws SomethingException {
+  public static void copyProperty(Object bean, String name, Object value) {
     try {
       BeanUtils.copyProperty(bean, name, value);
     } catch (Exception e) {
@@ -114,7 +111,7 @@ public class ObjectHelper {
     }
   }
 
-  public static void populate(Object bean, Map<String, ? extends Object> properties) throws SomethingException {
+  public static void populate(Object bean, Map<String, ? extends Object> properties) {
     try {
       BeanUtils.populate(bean, properties);
     } catch (Exception e) {
@@ -122,69 +119,64 @@ public class ObjectHelper {
     }
   }
 
-  public static String getSimpleProperty(Object bean, String name) throws SomethingException {
+  public static String getSimpleProperty(Object bean, String name) {
     try {
       return BeanUtils.getSimpleProperty(bean, name);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static String getNestedProperty(Object bean, String name) throws SomethingException {
+  public static String getNestedProperty(Object bean, String name) {
     try {
       return BeanUtils.getNestedProperty(bean, name);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static void setCacheFast(Map<?, ?> map, boolean fast) throws SomethingException {
+  public static void setCacheFast(Map<?, ?> map, boolean fast) {
     BeanUtils.setCacheFast(map, fast);
   }
 
-  public static <K, V> Map<K, V> createCache() throws SomethingException {
+  public static <K, V> Map<K, V> createCache() {
     return BeanUtils.createCache();
   }
 
-  public static String getMappedProperty(Object bean, String name) throws SomethingException {
+  public static String getMappedProperty(Object bean, String name) {
     try {
       return BeanUtils.getMappedProperty(bean, name);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static Map<String, String> describe(Object bean) throws SomethingException {
+  public static Map<String, String> describe(Object bean) {
     try {
       return BeanUtils.describe(bean);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handle内部から例外が出るためここは通らない
     return null;
   }
 
-  public static String getProperty(Object bean, String name) throws SomethingException {
+  public static String getProperty(Object bean, String name) {
     try {
       return BeanUtils.getProperty(bean, name);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static boolean getCacheFast(Map<?, ?> map) throws SomethingException {
+  public static boolean getCacheFast(Map<?, ?> map) {
     return BeanUtils.getCacheFast(map);
   }
 
-  public static void copyProperties(Object dest, Object orig) throws SomethingException {
+  public static void copyProperties(Object orig, Object dest) {
     try {
       BeanUtils.copyProperties(dest, orig);
     } catch (Exception e) {
@@ -192,47 +184,43 @@ public class ObjectHelper {
     }
   }
 
-  public static boolean initCause(Throwable throwable, Throwable cause) throws SomethingException {
+  public static boolean initCause(Throwable throwable, Throwable cause) {
     return BeanUtils.initCause(throwable, cause);
   }
 
-  public static String getIndexedProperty(Object bean, String name, int index) throws SomethingException {
+  public static String getIndexedProperty(Object bean, String name, int index) {
     try {
       return BeanUtils.getIndexedProperty(bean, name, index);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static Object cloneBean(Object bean) throws SomethingException {
+  public static Object cloneBean(Object bean) {
     try {
       return BeanUtils.cloneBean(bean);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static String getIndexedProperty(Object bean, String name) throws SomethingException {
+  public static String getIndexedProperty(Object bean, String name) {
     try {
       return BeanUtils.getIndexedProperty(bean, name);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 
-  public static String getMappedProperty(Object bean, String name, String key) throws SomethingException {
+  public static String getMappedProperty(Object bean, String name, String key) {
     try {
       return BeanUtils.getMappedProperty(bean, name, key);
     } catch (Exception e) {
       ExceptionHelper.handle(e);
     }
-    // ExceptionHelper.handl内部から例外が出るためここは通らない
     return null;
   }
 

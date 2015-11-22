@@ -1,4 +1,4 @@
-package jp.co.anywhere.consumer.shared.util;
+package jp.co.anywhere.common.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

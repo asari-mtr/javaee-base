@@ -1,4 +1,4 @@
-package jp.co.anywhere.consumer.shared.util;
+package jp.co.anywhere.common.util;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;

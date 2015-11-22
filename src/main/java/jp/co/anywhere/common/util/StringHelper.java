@@ -1,4 +1,4 @@
-package jp.co.anywhere.consumer.shared.util;
+package jp.co.anywhere.common.util;
 
 import org.apache.commons.lang3.StringUtils;
 
