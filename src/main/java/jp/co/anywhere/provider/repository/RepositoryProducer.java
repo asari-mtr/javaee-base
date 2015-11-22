@@ -8,10 +8,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
@@ -36,13 +37,12 @@ public class RepositoryProducer {
   public SimpleRepository<User> createUserRepository() {
     return new SimpleRepository<>(User.class, entityManager, new SimpleListener<UserParameter, User>(){
       @Override
-      public Predicate[] query(Root<User> root, CriteriaBuilder builder, UserParameter parameter) {
+      public CriteriaQuery<User> query(Root<User> root, CriteriaQuery<User> query, CriteriaBuilder builder, UserParameter parameter) {
         if(StringUtils.isNotEmpty(parameter.getKeyword())){
           String pattern = "%" + parameter.getKeyword() + "%";
-          return new Predicate[]{builder.like(root.get(User_.name), pattern)};
-        } else {
-          return new Predicate[0];
+          return query.where(builder.like(root.get(User_.name), pattern));
         }
+        return query;
       }
     });
   }

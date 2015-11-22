@@ -20,16 +20,27 @@ public class SimpleRepository<E extends AbstractEntity> {
   private EntityManager entityManager;
 
   private Class<E> clazz;
+  private CriteriaBuilder builder;
+  private CriteriaQuery<E> query;
+  private Root<E> root;
 
   public SimpleRepository(Class<E> clazz, EntityManager entityManager) {
     this.clazz = clazz;
     this.entityManager = entityManager;
+    reset();
   }
 
   public SimpleRepository(Class<E> clazz, EntityManager entityManager, Listener listener) {
     this.clazz = clazz;
     this.entityManager = entityManager;
     this.listener = listener;
+    reset();
+  }
+
+  private void reset() {
+    builder = entityManager.getCriteriaBuilder();
+    query = builder.createQuery(clazz);
+    root = query.from(clazz);
   }
 
   /**
@@ -69,11 +80,10 @@ public class SimpleRepository<E extends AbstractEntity> {
    * 全件取得
    * @param clazz 対象のテーブル
    * @return 対象のテーブル全件
+   * @deprecated findManyに統合するので後で消す
    */
+  @Deprecated
   public Collection<E> findAll(Class<E> clazz) {
-    CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-    CriteriaQuery<E> query = builder.createQuery(clazz);
-    Root<E> root = query.from(clazz);
     query.select(root).orderBy(builder.desc(root.get(AbstractEntity_.id)));
     return entityManager.createQuery(query).getResultList();
   }
@@ -85,10 +95,6 @@ public class SimpleRepository<E extends AbstractEntity> {
    * @return 対象のテーブル全件
    */
   public Collection<E> findMany(Class<E> clazz, Parameter parameter) {
-    CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-    CriteriaQuery<E> query = builder.createQuery(clazz);
-    Root<E> root = query.from(clazz);
-    query.select(root).where(listener.query(root, builder, parameter)).orderBy(builder.desc(root.get(AbstractEntity_.id)));
-    return entityManager.createQuery(query).getResultList();
+    return entityManager.createQuery(listener.query(root, query, builder, parameter)).getResultList();
   }
 }
