@@ -3,6 +3,7 @@ package jp.co.anywhere.consumer.user;
 import jp.co.anywhere.common.util.DigestHelper;
 import jp.co.anywhere.common.util.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
+import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 import jp.co.anywhere.provider.service.user.UserService;
 import org.omnifaces.util.Faces;
@@ -21,8 +22,6 @@ public class UserAction implements Action {
 
   @Inject
   private UserService service;
-
-  private Collection<UserModel> item;
 
   /**
    * ユーザ情報の呼び出し
@@ -66,10 +65,8 @@ public class UserAction implements Action {
    * ユーザ一覧の取得
    * @return
    */
+  @Cacheable
   public Collection<UserModel> getResult(UserParameter parameter) {
-    if(item == null) {
-      item = service.findMany(parameter);
-    }
-    return item;
+    return service.findMany(parameter);
   }
 }
