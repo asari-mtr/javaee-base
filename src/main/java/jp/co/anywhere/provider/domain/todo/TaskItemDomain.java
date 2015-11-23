@@ -1,17 +1,17 @@
 package jp.co.anywhere.provider.domain.todo;
 
-import jp.co.anywhere.iface.TodoModel;
+import jp.co.anywhere.iface.TodoServiceObject;
 import jp.co.anywhere.provider.shared.AbstractDomain;
 import jp.co.anywhere.provider.entity.TaskItem;
 
 /**
  * Created by asari on 2015/11/11.
  */
-public class TaskItemDomain extends AbstractDomain<TodoModel, TaskItem> {
+public class TaskItemDomain extends AbstractDomain<TodoServiceObject, TaskItem> {
 
   @Override
-  public TodoModel toModel(TaskItem entity) {
-    TodoModel taskModel = new TodoModel();
+  public TodoServiceObject toModel(TaskItem entity) {
+    TodoServiceObject taskModel = new TodoServiceObject();
     taskModel.setId(entity.getId());
     taskModel.setTask(entity.getTask());
     taskModel.setDone(entity.isDone());
@@ -21,7 +21,7 @@ public class TaskItemDomain extends AbstractDomain<TodoModel, TaskItem> {
   }
 
   @Override
-  public TaskItem toEntity(TaskItem taskItem, TodoModel model) {
+  public TaskItem toEntity(TaskItem taskItem, TodoServiceObject model) {
     taskItem.setId(model.getId());
     taskItem.setTask(model.getTask());
     taskItem.setDone(model.isDone());

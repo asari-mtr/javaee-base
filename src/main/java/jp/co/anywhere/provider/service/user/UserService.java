@@ -1,6 +1,6 @@
 package jp.co.anywhere.provider.service.user;
 
-import jp.co.anywhere.iface.UserModel;
+import jp.co.anywhere.iface.UserServiceObject;
 import jp.co.anywhere.consumer.user.UserParameter;
 import jp.co.anywhere.provider.shared.AbstractDomain;
 import jp.co.anywhere.provider.entity.User;
@@ -14,27 +14,27 @@ import java.util.Collection;
  * Created by asari on 2015/11/15.
  */
 @Transactional
-public class UserService extends AbstractService<UserModel> {
+public class UserService extends AbstractService<UserServiceObject> {
   @Inject
-  private AbstractDomain<UserModel, User> domain;
+  private AbstractDomain<UserServiceObject, User> domain;
 
-  public UserModel get(UserModel userModel) {
+  public UserServiceObject get(UserServiceObject userModel) {
     return domain.get(userModel.getId());
   }
 
-  public UserModel save(UserModel user) {
+  public UserServiceObject save(UserServiceObject user) {
     return domain.save(user);
   }
 
-  public void delete(UserModel user) {
+  public void delete(UserServiceObject user) {
     domain.delete(user.getId());
   }
 
-  public Collection<UserModel> findAll() {
+  public Collection<UserServiceObject> findAll() {
     return domain.findAll();
   }
 
-  public Collection<UserModel> findMany(UserParameter parameter) {
+  public Collection<UserServiceObject> findMany(UserParameter parameter) {
     return domain.findMany(parameter);
   }
 }

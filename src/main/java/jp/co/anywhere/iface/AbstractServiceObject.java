@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by asari on 2015/11/07.
  */
-public class AbstractModel implements Model {
+public class AbstractServiceObject implements ServiceObject {
   /** ID */
   private Long id;
 

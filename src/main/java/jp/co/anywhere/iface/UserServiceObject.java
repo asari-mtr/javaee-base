@@ -7,7 +7,7 @@ import jp.co.anywhere.consumer.shared.validator.Email;
  * Created by asari on 2015/11/15.
  */
 @Model
-public class UserModel extends AbstractModel {
+public class UserServiceObject extends AbstractServiceObject {
   private String name;
   @Email
   private String email;

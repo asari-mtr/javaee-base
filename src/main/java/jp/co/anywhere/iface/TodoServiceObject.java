@@ -1,13 +1,12 @@
 package jp.co.anywhere.iface;
 
-import jp.co.anywhere.iface.AbstractModel;
 import jp.co.anywhere.consumer.shared.stereotype.Model;
 
 /**
  * Created by asari on 2015/11/07.
  */
 @Model
-public class TodoModel extends AbstractModel {
+public class TodoServiceObject extends AbstractServiceObject {
   /** タスク */
   private String task;
   /** 完了か */

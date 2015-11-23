@@ -3,7 +3,7 @@ package jp.co.anywhere.consumer.todo;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
-import jp.co.anywhere.iface.TodoModel;
+import jp.co.anywhere.iface.TodoServiceObject;
 import jp.co.anywhere.provider.service.todo.TodoService;
 
 import javax.enterprise.context.RequestScoped;
@@ -24,7 +24,7 @@ public class TodoAction implements Action {
   /**
    * タスクの作成
    */
-  public void create(TodoModel todo) {
+  public void create(TodoServiceObject todo) {
     service.save(todo);
 
     // TODO ajax更新の場合taskの値が残ってしまうので削除処理を入れておく、なんとかならないのか
@@ -35,11 +35,11 @@ public class TodoAction implements Action {
    * タスクの削除
    */
   @ClearCache
-  public void delete(TodoModel todo) {
+  public void delete(TodoServiceObject todo) {
     service.delete(todo);
   }
 
-  public void check(TodoModel todo) {
+  public void check(TodoServiceObject todo) {
     service.save(todo);
   }
 
@@ -48,7 +48,7 @@ public class TodoAction implements Action {
    * @return
    */
   @Cacheable
-  public Collection<TodoModel> getResult() {
+  public Collection<TodoServiceObject> getResult() {
     return service.findAll();
   }
 }

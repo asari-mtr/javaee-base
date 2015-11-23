@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by asari on 2015/11/07.
  */
-public interface Model {
+public interface ServiceObject {
   /** IDを取得する */
   Long getId();
   /** IDを設定する */

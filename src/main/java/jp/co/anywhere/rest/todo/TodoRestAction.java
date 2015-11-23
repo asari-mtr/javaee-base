@@ -1,6 +1,6 @@
 package jp.co.anywhere.rest.todo;
 
-import jp.co.anywhere.iface.TodoModel;
+import jp.co.anywhere.iface.TodoServiceObject;
 import jp.co.anywhere.provider.service.todo.TodoService;
 import org.omnifaces.util.Json;
 
@@ -23,7 +23,7 @@ public class TodoRestAction {
   @Path("/list")
   @Produces("text/plain")
   public String getList() {
-    Collection<TodoModel> list = service.findAll();
+    Collection<TodoServiceObject> list = service.findAll();
 
     return Json.encode(list);
   }

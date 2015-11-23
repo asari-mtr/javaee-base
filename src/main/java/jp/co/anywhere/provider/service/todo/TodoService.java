@@ -1,6 +1,6 @@
 package jp.co.anywhere.provider.service.todo;
 
-import jp.co.anywhere.iface.TodoModel;
+import jp.co.anywhere.iface.TodoServiceObject;
 import jp.co.anywhere.provider.shared.AbstractDomain;
 import jp.co.anywhere.provider.entity.TaskItem;
 import jp.co.anywhere.provider.shared.AbstractService;
@@ -13,20 +13,20 @@ import java.util.Collection;
  * Created by asari on 2015/11/11.
  */
 @Transactional
-public class TodoService extends AbstractService<TodoModel> {
+public class TodoService extends AbstractService<TodoServiceObject> {
 
   @Inject
-  private AbstractDomain<TodoModel, TaskItem> domain;
+  private AbstractDomain<TodoServiceObject, TaskItem> domain;
 
-  public TodoModel save(TodoModel todo) {
+  public TodoServiceObject save(TodoServiceObject todo) {
     return domain.save(todo);
   }
 
-  public void delete(TodoModel todo) {
+  public void delete(TodoServiceObject todo) {
     domain.delete(todo.getId());
   }
 
-  public Collection<TodoModel> findAll() {
+  public Collection<TodoServiceObject> findAll() {
     return domain.findAll();
   }
 
