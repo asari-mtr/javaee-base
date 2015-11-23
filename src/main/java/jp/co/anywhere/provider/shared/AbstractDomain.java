@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by asari on 2015/11/17.
  */
-public abstract class AbstractDomain<M extends ServiceObject, E extends AbstractEntity> implements Domain<M, E>, Converter<M, E> {
+public abstract class AbstractDomain<M extends ServiceObject, E extends AbstractEntity> implements Domain<M, E>, EntityConverter<M, E> {
 
   private final Class<E> clazz;
 
