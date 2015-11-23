@@ -1,6 +1,6 @@
 package jp.co.anywhere.provider.domain.todo;
 
-import jp.co.anywhere.consumer.todo.TodoModel;
+import jp.co.anywhere.iface.TodoModel;
 import jp.co.anywhere.provider.shared.AbstractDomain;
 import jp.co.anywhere.provider.entity.TaskItem;
 

@@ -1,4 +1,4 @@
-package jp.co.anywhere.consumer.todo;
+package jp.co.anywhere.iface;
 
 import jp.co.anywhere.iface.AbstractModel;
 import jp.co.anywhere.consumer.shared.stereotype.Model;

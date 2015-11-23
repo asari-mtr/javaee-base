@@ -5,6 +5,7 @@ import jp.co.anywhere.common.util.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
+import jp.co.anywhere.iface.UserModel;
 import jp.co.anywhere.provider.service.user.UserService;
 import org.omnifaces.util.Faces;
 

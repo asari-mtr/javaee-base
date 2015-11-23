@@ -1,6 +1,6 @@
 package jp.co.anywhere.rest.todo;
 
-import jp.co.anywhere.consumer.todo.TodoModel;
+import jp.co.anywhere.iface.TodoModel;
 import jp.co.anywhere.provider.service.todo.TodoService;
 import org.omnifaces.util.Json;
 

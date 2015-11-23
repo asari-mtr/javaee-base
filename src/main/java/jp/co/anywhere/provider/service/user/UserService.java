@@ -1,6 +1,6 @@
 package jp.co.anywhere.provider.service.user;
 
-import jp.co.anywhere.consumer.user.UserModel;
+import jp.co.anywhere.iface.UserModel;
 import jp.co.anywhere.consumer.user.UserParameter;
 import jp.co.anywhere.provider.shared.AbstractDomain;
 import jp.co.anywhere.provider.entity.User;

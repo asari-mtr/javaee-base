@@ -3,6 +3,7 @@ package jp.co.anywhere.consumer.todo;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
+import jp.co.anywhere.iface.TodoModel;
 import jp.co.anywhere.provider.service.todo.TodoService;
 
 import javax.enterprise.context.RequestScoped;
