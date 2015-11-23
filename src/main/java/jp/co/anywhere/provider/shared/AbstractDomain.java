@@ -1,7 +1,7 @@
 package jp.co.anywhere.provider.shared;
 
 import jp.co.anywhere.iface.ServiceObject;
-import jp.co.anywhere.consumer.shared.Parameter;
+import jp.co.anywhere.iface.Parameter;
 import jp.co.anywhere.provider.repository.SimpleRepository;
 
 import javax.inject.Inject;

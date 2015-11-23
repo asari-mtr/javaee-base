@@ -5,8 +5,6 @@ import jp.co.anywhere.common.util.ObjectHelper;
 import jp.co.anywhere.consumer.shared.Action;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
 import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
-import jp.co.anywhere.iface.UserServiceObject;
-import jp.co.anywhere.provider.service.user.UserService;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
@@ -22,17 +20,17 @@ import java.util.Collection;
 public class UserAction implements Action {
 
   @Inject
-  private UserService service;
+  private UserServiceProxy proxy;
 
   /**
    * ユーザ情報の呼び出し
    */
-  public void load(UserServiceObject user) {
+  public void load(User user) {
     // TODO 不正なIDの場合の例外処理追加
     if (user.getId() == null) {
       return;
     }
-    UserServiceObject userModel = service.get(user);
+    User userModel = proxy.get(user);
     ObjectHelper.copyProperties(userModel, user);
   }
 
@@ -40,9 +38,9 @@ public class UserAction implements Action {
    * ユーザの作成
    */
   @ClearCache
-  public String create(UserServiceObject user) {
+  public String create(User user) {
     user.setHashedPassword(hashed(user.getPassword()));
-    UserServiceObject saved = service.save(user);
+    User saved = proxy.save(user);
 
     Faces.getFlash().put("id", saved.getId());
 
@@ -58,8 +56,8 @@ public class UserAction implements Action {
    * @param user
    */
   @ClearCache
-  public void delete(UserServiceObject user) {
-    service.delete(user);
+  public void delete(User user) {
+    proxy.delete(user);
   }
 
   /**
@@ -67,7 +65,7 @@ public class UserAction implements Action {
    * @return
    */
   @Cacheable
-  public Collection<UserServiceObject> getResult(UserParameter parameter) {
-    return service.findMany(parameter);
+  public Collection<User> getResult(UserParameter parameter) {
+    return proxy.findMany(parameter);
   }
 }

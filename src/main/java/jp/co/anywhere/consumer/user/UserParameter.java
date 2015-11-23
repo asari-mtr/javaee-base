@@ -1,6 +1,6 @@
 package jp.co.anywhere.consumer.user;
 
-import jp.co.anywhere.consumer.shared.KeywordParameterImpl;
+import jp.co.anywhere.iface.KeywordParameterImpl;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

@@ -1,6 +1,6 @@
 package jp.co.anywhere.provider.repository;
 
-import jp.co.anywhere.consumer.shared.Parameter;
+import jp.co.anywhere.iface.Parameter;
 import jp.co.anywhere.provider.shared.AbstractEntity;
 import jp.co.anywhere.provider.shared.AbstractEntity_;
 

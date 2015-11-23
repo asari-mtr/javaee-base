@@ -15,15 +15,15 @@
                <h:commandButton action="edit" value="#{res.action_new}" styleClass="btn btn-info" />
            </h:form>
        </div>
-       <ui:repeat value="#{userAction.getResult(userParameter)}" var="user">
+       <ui:repeat value="#{userAction.getResult(userParameter)}" var="item">
            <h:link outcome="view" styleClass="list-group-item">
-               <f:param name="id" value="#{user.id}"/>
+               <f:param name="id" value="#{item.id}"/>
                <div class="row">
                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                       <h:outputText value="#{user.name}"/>
+                       <h:outputText value="#{item.name}"/>
                    </div>
                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                       <h:outputText value="#{user.email}"/>
+                       <h:outputText value="#{item.email}"/>
                    </div>
                </div>
            </h:link>

@@ -13,7 +13,8 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = EmailValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Email {
+public @interface
+  Email {
 
   String message() default "{valid.email}";
 

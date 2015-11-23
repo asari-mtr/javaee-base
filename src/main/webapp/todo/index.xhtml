@@ -11,9 +11,9 @@
                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-pencil"/>
                </span>
-               <h:inputText id="todo" styleClass="form-control" value="#{todoModel.task}" p:placeholder="#{res.placeholder_add_task}" p:autofocus="true"/>
+               <h:inputText id="todo" styleClass="form-control" value="#{todo.task}" p:placeholder="#{res.placeholder_add_task}" p:autofocus="true"/>
                <span class="input-group-btn">
-                  <h:commandButton action="#{todoAction.create(todoModel)}" value="#{res.action_add}" styleClass="btn btn-primary">
+                  <h:commandButton action="#{todoAction.create(todo)}" value="#{res.action_add}" styleClass="btn btn-primary">
                      <f:ajax execute="@form" render="todo items"/>
                   </h:commandButton>
                </span>

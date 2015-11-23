@@ -1,4 +1,4 @@
-package jp.co.anywhere.consumer.shared;
+package jp.co.anywhere.iface;
 
 /**
  * Created by asari on 2015/11/20.

@@ -1,10 +1,8 @@
 package jp.co.anywhere.consumer.todo;
 
 import jp.co.anywhere.consumer.shared.Action;
-import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 import jp.co.anywhere.consumer.shared.interceptor.Cacheable;
-import jp.co.anywhere.iface.TodoServiceObject;
-import jp.co.anywhere.provider.service.todo.TodoService;
+import jp.co.anywhere.consumer.shared.interceptor.ClearCache;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -19,13 +17,13 @@ import java.util.Collection;
 public class TodoAction implements Action {
 
   @Inject
-  private TodoService service;
+  private TodoServiceProxy  proxy;
 
   /**
    * タスクの作成
    */
-  public void create(TodoServiceObject todo) {
-    service.save(todo);
+  public void create(Todo todo) {
+    proxy.save(todo);
 
     // TODO ajax更新の場合taskの値が残ってしまうので削除処理を入れておく、なんとかならないのか
     todo.setTask("");
@@ -35,12 +33,12 @@ public class TodoAction implements Action {
    * タスクの削除
    */
   @ClearCache
-  public void delete(TodoServiceObject todo) {
-    service.delete(todo);
+  public void delete(Todo todo) {
+    proxy.delete(todo);
   }
 
-  public void check(TodoServiceObject todo) {
-    service.save(todo);
+  public void check(Todo todo) {
+    proxy.save(todo);
   }
 
   /**
@@ -48,7 +46,7 @@ public class TodoAction implements Action {
    * @return
    */
   @Cacheable
-  public Collection<TodoServiceObject> getResult() {
-    return service.findAll();
+  public Collection<Todo> getResult() {
+    return proxy.findAll();
   }
 }

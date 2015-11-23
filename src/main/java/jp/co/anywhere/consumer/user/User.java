@@ -1,10 +1,16 @@
-package jp.co.anywhere.iface;
+package jp.co.anywhere.consumer.user;
+
+import jp.co.anywhere.consumer.shared.AbstractViewModel;
+import jp.co.anywhere.consumer.shared.stereotype.Model;
+import jp.co.anywhere.consumer.shared.validator.Email;
 
 /**
  * Created by asari on 2015/11/15.
  */
-public class UserServiceObject extends AbstractServiceObject {
+@Model
+public class User extends AbstractViewModel {
   private String name;
+  @Email
   private String email;
   private String password;
   private String hashedPassword;
