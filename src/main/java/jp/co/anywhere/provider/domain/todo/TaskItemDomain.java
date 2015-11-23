@@ -10,7 +10,7 @@ import jp.co.anywhere.provider.entity.TaskItem;
 public class TaskItemDomain extends AbstractDomain<TodoServiceObject, TaskItem> {
 
   @Override
-  public TodoServiceObject toModel(TaskItem entity) {
+  public TodoServiceObject toServiceObject(TaskItem entity) {
     TodoServiceObject taskModel = new TodoServiceObject();
     taskModel.setId(entity.getId());
     taskModel.setTask(entity.getTask());
@@ -21,12 +21,12 @@ public class TaskItemDomain extends AbstractDomain<TodoServiceObject, TaskItem> 
   }
 
   @Override
-  public TaskItem toEntity(TaskItem taskItem, TodoServiceObject model) {
-    taskItem.setId(model.getId());
-    taskItem.setTask(model.getTask());
-    taskItem.setDone(model.isDone());
-    taskItem.setCreateDate(model.getCreateDate());
-    taskItem.setUpdateDate(model.getUpdateDate());
+  public TaskItem toEntity(TaskItem taskItem, TodoServiceObject serviceObject) {
+    taskItem.setId(serviceObject.getId());
+    taskItem.setTask(serviceObject.getTask());
+    taskItem.setDone(serviceObject.isDone());
+    taskItem.setCreateDate(serviceObject.getCreateDate());
+    taskItem.setUpdateDate(serviceObject.getUpdateDate());
     return taskItem;
   }
 }

@@ -10,7 +10,7 @@ import jp.co.anywhere.provider.entity.User;
 public class UserDomain extends AbstractDomain<UserServiceObject, User> {
 
   @Override
-  public UserServiceObject toModel(User entity) {
+  public UserServiceObject toServiceObject(User entity) {
     UserServiceObject userModel = new UserServiceObject();
     userModel.setId(entity.getId());
     userModel.setName(entity.getName());
@@ -22,13 +22,13 @@ public class UserDomain extends AbstractDomain<UserServiceObject, User> {
   }
 
   @Override
-  public User toEntity(User entity, UserServiceObject model) {
-    entity.setId(model.getId());
-    entity.setName(model.getName());
-    entity.setEmail(model.getEmail());
-    entity.setPassword(model.getHashedPassword());
-    entity.setCreateDate(model.getCreateDate());
-    entity.setUpdateDate(model.getUpdateDate());
+  public User toEntity(User entity, UserServiceObject serviceObject) {
+    entity.setId(serviceObject.getId());
+    entity.setName(serviceObject.getName());
+    entity.setEmail(serviceObject.getEmail());
+    entity.setPassword(serviceObject.getHashedPassword());
+    entity.setCreateDate(serviceObject.getCreateDate());
+    entity.setUpdateDate(serviceObject.getUpdateDate());
     return entity;
   }
 }

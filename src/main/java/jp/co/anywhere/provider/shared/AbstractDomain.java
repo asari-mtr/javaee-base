@@ -25,11 +25,11 @@ public abstract class AbstractDomain<M extends ServiceObject, E extends Abstract
   }
 
   public Collection<M> findAll() {
-    return repository.findAll(clazz).stream().map(this::toModel).collect(Collectors.toList());
+    return repository.findAll(clazz).stream().map(this::toServiceObject).collect(Collectors.toList());
   }
 
   public Collection<M> findMany(Parameter parameter) {
-    return repository.findMany(clazz,parameter).stream().map(this::toModel).collect(Collectors.toList());
+    return repository.findMany(clazz,parameter).stream().map(this::toServiceObject).collect(Collectors.toList());
   }
 
   public void delete(Long id) {
@@ -54,11 +54,11 @@ public abstract class AbstractDomain<M extends ServiceObject, E extends Abstract
     }
     E saved = repository.save(toEntity(e, model));
 
-    return toModel(saved);
+    return toServiceObject(saved);
   }
 
   public M get(Long id) {
-    return toModel(repository.get(id));
+    return toServiceObject(repository.get(id));
 
   }
 
