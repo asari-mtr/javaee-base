@@ -1,4 +1,4 @@
-package jp.co.anywhere.consumer.shared;
+package jp.co.anywhere.iface;
 
 import java.util.Date;
 

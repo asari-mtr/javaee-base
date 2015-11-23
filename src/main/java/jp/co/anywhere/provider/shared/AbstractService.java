@@ -5,7 +5,7 @@ package jp.co.anywhere.provider.shared;
  */
 
 import jp.co.anywhere.iface.Service;
-import jp.co.anywhere.consumer.shared.Model;
+import jp.co.anywhere.iface.Model;
 
 public abstract class AbstractService<E extends Model> implements Service<E> {
 }

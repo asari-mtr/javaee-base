@@ -1,6 +1,6 @@
 package jp.co.anywhere.consumer.todo;
 
-import jp.co.anywhere.consumer.shared.AbstractModel;
+import jp.co.anywhere.iface.AbstractModel;
 import jp.co.anywhere.consumer.shared.stereotype.Model;
 
 /**

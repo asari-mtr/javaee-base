@@ -1,7 +1,5 @@
 package jp.co.anywhere.iface;
 
-import jp.co.anywhere.consumer.shared.Model;
-
 import java.io.Serializable;
 
 /**
