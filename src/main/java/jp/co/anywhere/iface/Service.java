@@ -1,9 +1,8 @@
-package jp.co.anywhere.common;
+package jp.co.anywhere.iface;
 
 import jp.co.anywhere.consumer.shared.Model;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  * Created by asari on 2015/11/11.

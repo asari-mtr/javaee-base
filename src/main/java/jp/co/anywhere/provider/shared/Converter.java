@@ -1,7 +1,6 @@
-package jp.co.anywhere.common;
+package jp.co.anywhere.provider.shared;
 
 import jp.co.anywhere.consumer.shared.Model;
-import jp.co.anywhere.provider.shared.Entity;
 
 /**
  * Created by asari on 2015/11/11.
