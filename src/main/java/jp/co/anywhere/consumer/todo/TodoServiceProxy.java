@@ -1,6 +1,5 @@
 package jp.co.anywhere.consumer.todo;
 
-import jp.co.anywhere.common.util.ObjectHelper;
 import jp.co.anywhere.consumer.shared.AbstractServiceProxy;
 import jp.co.anywhere.iface.TodoServiceObject;
 import jp.co.anywhere.provider.service.todo.TodoService;
@@ -25,19 +24,5 @@ public class TodoServiceProxy extends AbstractServiceProxy<Todo, TodoServiceObje
 
   public void delete(Todo todo) {
     invoke(service::delete, todo);
-  }
-
-  @Override
-  public Todo toViewModel(TodoServiceObject serviceObject) {
-    Todo viewModel = new Todo();
-    ObjectHelper.copyProperties(serviceObject, viewModel);
-    return viewModel;
-  }
-
-  @Override
-  public TodoServiceObject toServiceObject(Todo viewModel) {
-    TodoServiceObject serviceObject = new TodoServiceObject();
-    ObjectHelper.copyProperties(viewModel, serviceObject);
-    return serviceObject;
   }
 }

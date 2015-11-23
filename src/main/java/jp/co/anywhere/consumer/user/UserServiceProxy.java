@@ -1,6 +1,5 @@
 package jp.co.anywhere.consumer.user;
 
-import jp.co.anywhere.common.util.ObjectHelper;
 import jp.co.anywhere.consumer.shared.AbstractServiceProxy;
 import jp.co.anywhere.iface.UserServiceObject;
 import jp.co.anywhere.provider.service.user.UserService;
@@ -33,19 +32,5 @@ public class UserServiceProxy extends AbstractServiceProxy<User, UserServiceObje
 
   public Collection<User> findMany(UserParameter parameter) {
     return invoke(service::findMany, parameter, this::toParameter);
-  }
-
-  @Override
-  public User toViewModel(UserServiceObject serviceObject) {
-    User viewModel = new User();
-    ObjectHelper.copyProperties(serviceObject, viewModel);
-    return viewModel;
-  }
-
-  @Override
-  public UserServiceObject toServiceObject(User viewModel) {
-    UserServiceObject serviceObject = new UserServiceObject();
-    ObjectHelper.copyProperties(viewModel, serviceObject);
-    return serviceObject;
   }
 }
