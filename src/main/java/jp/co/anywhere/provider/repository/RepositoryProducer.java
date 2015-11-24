@@ -8,18 +8,18 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.io.Serializable;
 
 /**
  * Created by asari on 2015/11/12.
  */
 @Dependent
-public class RepositoryProducer {
+public class RepositoryProducer implements Serializable {
 
   @PersistenceContext(name = "primary")
   private EntityManager entityManager;

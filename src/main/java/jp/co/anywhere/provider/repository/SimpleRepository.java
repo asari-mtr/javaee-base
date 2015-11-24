@@ -8,12 +8,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
  * Created by asari on 2015/11/07.
  */
-public class SimpleRepository<E extends AbstractEntity> {
+public class SimpleRepository<E extends AbstractEntity> implements Serializable {
 
   private Listener listener;
 
