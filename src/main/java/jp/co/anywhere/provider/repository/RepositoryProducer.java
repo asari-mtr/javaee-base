@@ -1,14 +1,11 @@
 package jp.co.anywhere.provider.repository;
 
 import jp.co.anywhere.consumer.user.UserParameter;
-import jp.co.anywhere.provider.entity.TaskItem;
-import jp.co.anywhere.provider.entity.User;
-import jp.co.anywhere.provider.entity.User_;
+import jp.co.anywhere.provider.entity.*;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -45,5 +42,17 @@ public class RepositoryProducer {
         return query;
       }
     });
+  }
+
+  @Produces
+  public SimpleRepository<FileData> createFileDataRepository() {
+    return new SimpleRepository<FileData>(FileData.class, entityManager, new SimpleListener<>()){
+    };
+  }
+
+  @Produces
+  public SimpleRepository<Project> createProjectRepository() {
+    return new SimpleRepository<Project>(Project.class, entityManager, new SimpleListener<>()){
+    };
   }
 }
